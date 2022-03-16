@@ -2,14 +2,15 @@
 /**
  * Your code here
  */
-require_once ('database.php');
+// require_once ('database.php');
+$db =new PDO ("mysql:host=localhost;dbname=facebook_db","root","");
 function getPost()
 {
     global $db;
-    $statement = $db-> query("SELECT id , item AS item_name , price  FROM posts;");
-    $statement->execute();
-    $items= $statement->fetchAll();
-    return $items;
+    $statement=$db->prepare('SELECT post_id, text_post FROM posts ;');
+     $statement->execute();
+    $text_post = $statement->fetchAll();
+    return$text_post ;
 }
 
 /**
@@ -18,16 +19,17 @@ function getPost()
  
  * @return associative_array: the item related to given item id
  */
-function getAllPost($id)
+function getPostById($post_id)
 {
     global $db;
-    $statement = $db -> prepare("SELECT id , item as  item_name,price  from items where id = :id ");
-    $statement-> execute([
-        ':id' => $id
-    ]
+    $statement = $db->prepare("SELECT post_id, text_post FROM posts where post_id = :post_id");
+    $statement->execute(
+        [
+            ':post_id'=> $post_id
+        ]
     );
-    $item = $statement -> fetch();
-    return  $item;  
+    $text_post= $statement->fetch();
+    return $text_post;
 }
 
 /**
@@ -82,14 +84,15 @@ function updatePost($id, $item_name, $price)
  
  * @return boolean: true if create was successful, false otherwise
  */
-function createItem($item_name, $price)
+function createPost($text_post)
 {
     global $db ;
-    $statement = $db -> prepare("INSERT INTO items (item,price) values (:item_name , :price)");
+    $statement = $db -> prepare("INSERT INTO posts (text_post,profile_id) values (:text_post,1)");
     $statement-> execute(
         [
-            ':item_name'=> $item_name,
-            ':price' => $price
+            ':text_post'=> $text_post
+
+           
         ]
         );
    return ($statement->rowCount() == 1 );
