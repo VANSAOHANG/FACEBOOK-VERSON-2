@@ -5,11 +5,6 @@
     top: 0;
     background-color: #fff;
 }
-
-.navigation_bar {
-    padding: 7px;
-}
-
 .search {
     display: flex;
     justify-content: space-between;
@@ -50,21 +45,6 @@
 
 .button_navigation_bar .user-name {
     margin-left: 20px;
-}
-
-
-/* -------container-------- */
-
-.back {
-    margin-left: 2.5%;
-}
-
-.back img {
-    width: 30px;
-}
-
-.refresh img {
-    width: 30px;
 }
 
 
