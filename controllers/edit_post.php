@@ -2,9 +2,13 @@
 /**
  * Your code here
  */
-require_once('../models/post.php');
-$id = $_POST['post_id'];
-$item = $_POST['text_post'];
-$price = $_POST['post_image'];
-updateItem($post_id,$text_post,$post_image);
+
+if(isset($_POST["submit"]))
+{
+    require_once('../models/post.php');
+    $post_id = $_POST['post_id'];
+    $text_post = $_POST['text_post'];
+    updatePost($post_id,$text_post);
+    
+}
 header('location: /index.php');

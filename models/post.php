@@ -61,15 +61,14 @@ function deletePost($post_id)
  
  * @return boolean: true if deletion was successful, false otherwise
  */
-function updatePost($post_id, $text_post, $post_image)
+function updatePost($post_id, $text_post)
 {
     global  $db ; 
-    $statement = $db ->prepare ("UPDATE posts  SET  text_post = :text_post, post_image = :post_image WHERE post_id = :post_id");
+    $statement = $db ->prepare ("UPDATE posts  SET  text_post = :text_post WHERE post_id = :post_id");
     $statement-> execute(
         [
             ':post_id' => $post_id,
             ':text_post'=> $text_post,
-            ':post_image' => $post_image
         ]
         );
         return ($statement->rowCount() == 1 );

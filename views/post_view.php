@@ -49,14 +49,14 @@
                     <img src="images/man.png" alt="">
                 </div>
                 <div class="user-name">
-                    <h6>Phearun Chhun<?php echo $text_post['post_id'];?></h6>
+                    <h6>Phearun Chhun</h6>
                 </div>
             </div>
             <div class="three-dot mx-4">
                 <h1>...
                     <div class="sub-menu-1">
                         <ul>
-                            <li><a href="">Edit</a></li>
+                            <li><a href="../views/edit_post.php?post_id=<?php echo $text_post['post_id'];?> ">Edit</a></li>
                             <li><a href="../controllers/delete_post.php?post_id=<?php echo $text_post['post_id'];?> ">Delete</a></li>
                         </ul>
                     </div>

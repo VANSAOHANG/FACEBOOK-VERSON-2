@@ -68,10 +68,8 @@ form {
 }
 
 .header .content {
-    /* width: 80%; */
     font-size: 1.2rem;
 }
-
 .header .btn-close {
     position: absolute;
     right: 10px;
@@ -83,7 +81,7 @@ textarea {
     width: 100%;
     resize: none;
     border: none;
-    background: #cccc;
+    background: #e2e0e0cc;
 }
 
 .insert-post {
@@ -226,13 +224,14 @@ textarea {
     align-items: center;
     border-top: 1.5px solid #cccbcbcc;
 }
-
+.profile{
+    display: flex;
+}
 .post-header,
-.profile {
+.post-view .post-header .profile {
     display: flex;
     justify-content: space-between;
 }
-
 .user-name {
     margin-top: 20px;
 }
