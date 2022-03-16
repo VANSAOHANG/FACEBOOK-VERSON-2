@@ -43,7 +43,14 @@
                 </div>
             </div>
             <div class="three-dot mx-4">
-                <h1>...</h1>
+                <h1>...
+                    <div class="sub-menu-1">
+                        <ul>
+                            <li><a href="">Edit</a></li>
+                            <li><a href="">Delete</a></li>
+                        </ul>
+                    </div>
+                </h1>
             </div>
         </div>
         <div class="post-description p-2">
@@ -56,6 +63,7 @@
             <div class="like">
                 <img src="../images/like.png" alt="">
                 <p>Like</p>
+                <!-- <i class="fa fa-thumbs-up"></i> -->
             </div>
             <div class="comment">
                 <img src="../images/comment.png" alt="">

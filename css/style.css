@@ -1,16 +1,13 @@
-
+.button_navigation_bar{
+    width: 100%;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    background-color: #fff;
+}
 .navigation_bar {
-    background: blue;
     padding: 7px;
-    color: #ffff;
 }
-
-.top_navigation_bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .search {
     display: flex;
     justify-content: space-between;
@@ -21,31 +18,34 @@
 }
 .button_navigation_bar {
     padding: 7px;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    box-shadow: rgba(66, 66, 100, 0.25) 0px 6px 12px -2px, rgba(126, 125, 125, 0.3) 0px 3px 7px -3px;
 }
-
-/* .back {
-    margin-left: 2.5%;
+.button_navigation_bar .profile {
+    margin-right: 6%;
 }
-
-.back img {
-    width: 30px;
-} */
-
-.refresh img {
-    width: 30px;
+.button_navigation_bar .write_something{
+    width: 250px;
 }
-
-
-/* container */
-
-
-/* post */
-
+.nav-link img {
+    width: 38px;
+}
+.menu {
+    margin-right: 90px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.material-icons.md-36 { font-size: 36px; }
+.button_navigation_bar .user-name{
+    margin-left: 20px;
+}
+/* -------container-------- */
 .container {
     width: 50%;
     margin: auto;
 }
+/* post */
+
 .post,.post-view{
     width: 100%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
@@ -126,6 +126,7 @@
 
 
 /* ------------post-view-------------- */
+
 .post-react{
     height: 20px;
     width: 90%;margin: auto;
@@ -150,6 +151,50 @@
     display: flex;
     margin-top: 25px;
 }
-
-
+.three-dot{
+    cursor: pointer;
+}
+.sub-menu-1{
+    display: none;
+    background-color: white;
+    border: 1px solid #cccbcbcc;
+    
+}
+.three-dot{
+    cursor: pointer;
+    position: relative;
+}
+.sub-menu-1 ul li{
+    list-style: none;
+    padding: 5px;
+    margin-right: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sub-menu-1 ul li a{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+}
+.three-dot:hover .sub-menu-1{
+    display: block;
+    position: absolute;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    margin-left: -70px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 0;
+}
+.three-dot:hover .sub-menu-1 li:first-child{
+    margin-top: 13px;
+}
+.three-dot:hover .sub-menu-1 li:hover{
+    background-color: #1877F2;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+.three-dot:hover .sub-menu-1 ul li:hover a{
+    color: white;
+}
 /* ------------end-post-view-------------- */

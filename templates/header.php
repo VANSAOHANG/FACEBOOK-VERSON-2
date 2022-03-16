@@ -7,12 +7,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- link to css -->
-    <link rel="stylesheet" href="css/style.css">
+    <title>Facebook 2.0</title>
+    <link rel="shortcut icon" href="../images/facebook.jpg" type="image/x-icon">
     <!-- link to bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- link to js -->
+  
+    <!-- link to google icon -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- link to css -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -23,43 +26,50 @@
             <ul class=" search-box">
                 <div class="nav nav-pills">
                     <li class="nav-item">
-                        <a class="nav-link back" aria-current="page" href="#">
+                        <a class="nav-link" aria-current="page" href="#">
                             <img src="images/facebook.jpg" alt="">
                         </a>
                     </li>
                 </div>
                 <div class="write_something">
-                    <input type="text" id="write_something" name="" placeholder="Search here">
+                    <input type="text" id="write_something"  placeholder="Search here">
                 </div>
             </ul>
-            <ul class="nav nav-pills">
+            <ul class="nav nav-pills menu w-50">
                 <li class="nav-item">
-                    <a class="nav-link back" aria-current="page" href="#">
-                        <img src="images/home.jpg" alt="">
+                    <a class="nav-link " aria-current="page" href="#">
+                        <i class="material-icons md-36 text-primary">home</i>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link refresh" href="#">
-                        <img src="images/video.jpg" alt="">
+                    <a class="nav-link" href="#">
+                        <i class="material-icons md-36 text-black">ondemand_video</i>
                     </a>
                 </li>
-                <li class="nav-item">
                 <li class="nav-item ">
-                    <a class="nav-link refresh" href="#">
-                        <img class="" src="images/friends.jpg" alt="">
+                    <a class="nav-link" href="#">
+                         <i class="material-icons md-36 text-black"> people_outline</i>
                     </a>
                 </li>
-
             </ul>
-            <ul class="nav nav-pills">
+           
+            <div class="profile">
+                <div class="img_profile"> 
+                    <img src="images/man.png" alt="">
+                </div>
+                <div class="user-name">
+                    <h6>Phearun Chhun</h6>
+                </div>
+            </div>
+            <!-- <ul class="nav nav-pills">
                 <li class="nav-item ">
                     <a class="nav-link more" aria-current="page" href="#">
                         <img src="images/more.png" alt="">
                     </a>
                 </li>
-            </ul>
+            </ul> -->
         </div>
-        <div class="menu"></div>
+        <!-- <div class="menu"></div> -->
     </div>
 
     
