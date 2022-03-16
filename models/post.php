@@ -36,20 +36,16 @@ function getAllPost($id)
  
  * @return boolean: true if deletion was successful, false otherwise
  */
-function deletePost($id)
+function deletePost($post_id)
 {
     global $db;
-    $statement = $db -> prepare("DELETE FROM items where id = :id_item ");
+    $statement = $db -> prepare("DELETE FROM posts where post_id = :post_id ");
     $statement-> execute (
     [
-        ':id_item' => $id
+        ':post_id' => $id
     ]
     );
-    if ( $statement->rowCount() == 1):
-        return true;
-    else:
-        return false;
-    endif;
+    return ( $statement->rowCount() == 1);
 }
 
 /**
@@ -61,15 +57,15 @@ function deletePost($id)
  
  * @return boolean: true if deletion was successful, false otherwise
  */
-function updatePost($id, $item_name, $price)
+function updatePost($post_id, $text_post, $post_image)
 {
     global  $db ; 
-    $statement = $db ->prepare ("UPDATE items  set  item = :item_name, price = :price where id = :item_id");
+    $statement = $db ->prepare ("UPDATE posts  SET  text_post = :text_post, post_image = :post_image WHERE post_id = :post_id");
     $statement-> execute(
         [
-            ':item_id' => $id,
-            ':item_name'=> $item_name,
-            ':price' => $price
+            ':post_id' => $post_id,
+            ':text_post'=> $text_post,
+            ':post_image' => $post_image
         ]
         );
         return ($statement->rowCount() == 1 );
