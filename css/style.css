@@ -79,8 +79,10 @@ form {
     padding-bottom: 20px;
 }
 
-.text-post {
+textarea {
     width: 100%;
+    resize: none;
+    border: none;
     background: #cccc;
 }
 

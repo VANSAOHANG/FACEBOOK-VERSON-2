@@ -2,8 +2,8 @@
 /**
  * Your code here
  */
-// require_once ('database.php');
-$db =new PDO ("mysql:host=localhost;port=3307;dbname=project_facebook_php","root","");
+require_once ('database.php');
+
 function getPost()
 {
     global $db;
@@ -47,7 +47,9 @@ function deletePost($post_id)
         ':post_id' => $post_id
     ]
     );
-    return ( $statement->rowCount() == 1);
+    // if ( $statement->rowCount() == 1):
+    //     return true;
+    // endif;
 }
 
 /**
@@ -87,10 +89,28 @@ function createPost($text_post)
     $statement-> execute(
         [
             ':text_post'=> $text_post
-
+            // ':profile_id'=> $profile_id
            
         ]
         );
    return ($statement->rowCount() == 1 );
 
 }
+
+// add photo
+// function addImageToPost($text_post,$post_image)
+// {
+//     global $db ;
+//     $statement = $db -> prepare("INSERT INTO posts (text_post,post_image) values (:text_post,:post_image)");
+//     $statement-> execute(
+//         [
+            
+//             ':text_post'=> $text_post,
+           
+//             ':post_image'=> $post_image
+           
+//         ]
+//         );
+//    return ($statement->rowCount() == 1 );
+
+// }
