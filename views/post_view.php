@@ -7,9 +7,9 @@
                     <img src="images/man.png" alt="">
                 </div>
                 <div class="write_something">
-                    <button class ='w-100 border-0 p-2 rounded-pill write_something' >
-                        What is your mine?<a href="<?php echo('post_create.php')?> "></a>
-                    </button>
+                    <span class ='w-100 border-0 p-2 rounded-pill write_something' >
+                        <a href="../views/post_create.php" class='your-mine'>  What is your mine?</a>
+                    </span>
                 </div>
             </div>
             <div class="function_post">
@@ -32,8 +32,14 @@
                     <p>FEELING</p>
                 </div>
             </div>
+            <?php?>
     </div>
     <!-- -------end post--------- -->
+        <?php
+        require_once ('./models/post.php');
+        $text_posts  = getPost();
+        foreach($text_posts as $text_post):
+        ?>
     <div class="post-view p-0 pt-3 pb-5">
         <div class="post-header">
             <div class="profile">
@@ -56,7 +62,8 @@
             </div>
         </div>
         <div class="post-description p-2">
-            <p>[English Below] It is a long established fact that a reader will be distracted by the readable content of a page. </p>
+            <!-- <p>[English Below] It is a long established fact that a reader will be distracted by the readable content of a page. </p> -->
+            <?=  $text_post['text_post'] ?>
         </div>
         <div class="post-image">
             <img class="w-100 p-0" src="../images/post.JPG" alt="">
@@ -75,4 +82,7 @@
 
         </div>
     </div>
+    <?php
+    endforeach;  
+    ?>
 </div>

@@ -32,7 +32,7 @@
                 <div class="nav nav-pills">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="#">
-                            <img src="images/facebook.jpg" alt="">
+                            <img src="../images/facebook.jpg" alt="">
                         </a>
                     </li>
                 </div>
@@ -60,7 +60,7 @@
            
             <div class="profile">
                 <div class="img_profile"> 
-                    <img src="images/man.png" alt="">
+                    <img src="../images/man.png" alt="">
                 </div>
                 <div class="user-name">
                     <h6>Phearun Chhun</h6>

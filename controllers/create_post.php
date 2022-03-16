@@ -1,7 +1,7 @@
 <?php
-require_once ("../models/item.php");
-$item = $_POST['item'];
-$price = $_POST['price'];
-createItem($item,$price);
+require_once ("../models/post.php");
+$text_post = $_POST['text_post'];
+// $price = $_POST['price'];
+createPost($text_post);
 
 header("location: /index.php");
