@@ -98,7 +98,7 @@ CREATE TABLE `comments` (
  `profile_id` INT(11) NOT NULL,
  foreign key (profile_id) REFERENCES profiles(profile_id),
   `post_id` INT(11) NOT NULL,
-  foreign key (post_id) REFERENCES posts(post_id)
+  foreign key (post_id) REFERENCES posts(post_id) 
 
 ) ;
 --

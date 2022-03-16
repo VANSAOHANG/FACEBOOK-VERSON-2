@@ -38,7 +38,9 @@
         <?php
         require_once ('./models/post.php');
         $text_posts  = getPost();
+        // print_r($text_posts);
         foreach($text_posts as $text_post):
+
         ?>
     <div class="post-view p-0 pt-3 pb-5">
         <div class="post-header">
@@ -47,7 +49,7 @@
                     <img src="images/man.png" alt="">
                 </div>
                 <div class="user-name">
-                    <h6>Phearun Chhun</h6>
+                    <h6>Phearun Chhun<?php echo $text_post['post_id'];?></h6>
                 </div>
             </div>
             <div class="three-dot mx-4">
@@ -55,7 +57,7 @@
                     <div class="sub-menu-1">
                         <ul>
                             <li><a href="">Edit</a></li>
-                            <li><a href="">Delete</a></li>
+                            <li><a href="../controllers/delete_post.php?post_id=<?php echo $text_post['post_id'];?> ">Delete</a></li>
                         </ul>
                     </div>
                 </h1>

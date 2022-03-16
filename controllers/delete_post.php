@@ -4,6 +4,6 @@
  */
 
 require_once('../models/post.php');
-$id = $_GET['post_id'];
-deleteItem($post_id);
+$post_id = $_GET['post_id'];
+deletePost($post_id);
 header('location: /index.php');

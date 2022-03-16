@@ -3,7 +3,7 @@
  * Your code here
  */
 // require_once ('database.php');
-$db =new PDO ("mysql:host=localhost;dbname=facebook_db","root","");
+$db =new PDO ("mysql:host=localhost;port=3307;dbname=project_facebook_php","root","");
 function getPost()
 {
     global $db;
@@ -41,10 +41,10 @@ function getPostById($post_id)
 function deletePost($post_id)
 {
     global $db;
-    $statement = $db -> prepare("DELETE FROM posts where post_id = :post_id ");
+    $statement = $db -> prepare("DELETE FROM posts where post_id = :post_id ;");
     $statement-> execute (
     [
-        ':post_id' => $id
+        ':post_id' => $post_id
     ]
     );
     return ( $statement->rowCount() == 1);
