@@ -7,7 +7,9 @@
                     <img src="images/man.png" alt="">
                 </div>
                 <div class="write_something">
-                    <input type="text" id="write_something" name="" placeholder="what's on your mind?">
+                    <button class ='w-100 border-0 p-2 rounded-pill write_something' >
+                        What is your mine?<a href="<?php echo('post_create.php')?> "></a>
+                    </button>
                 </div>
             </div>
             <div class="function_post">
@@ -58,6 +60,7 @@
         </div>
         <div class="post-image">
             <img class="w-100 p-0" src="../images/post.JPG" alt="">
+            <?php ?>
         </div>
         <div class="function_post post-react p-3">
             <div class="like">
