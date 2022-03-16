@@ -67,7 +67,7 @@
         </div>
         <div class="post-image">
             <img class="w-100 p-0" src="../images/post.JPG" alt="">
-            <?php ?>
+          
         </div>
         <div class="function_post post-react p-3">
             <div class="like">

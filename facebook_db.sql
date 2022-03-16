@@ -52,8 +52,9 @@ CREATE TABLE `posts` (
   `text_post` varchar(255) NOT NULL,
   `media_location` varchar(255) NOT NULL,
   `create_datetime` datetime NOT NULL,
-  `profile_id` int NOT NULL,
-  foreign key (profile_id) REFERENCES profiles(profile_id)
+  `profile_id` int ,
+  foreign key (profile_id) REFERENCES profiles(profile_id),
+  `images` VARCHAR(255)
 ) ;
 
 --

@@ -82,35 +82,19 @@ function updatePost($post_id, $text_post, $post_image)
  
  * @return boolean: true if create was successful, false otherwise
  */
-function createPost($text_post)
+function createPost($text_post,$file_images)
 {
+    $target = "../models/images/" .$_FILES['file_images']['name'];
+    move_uploaded_file($_FILES['file-images']['tmp_name'],$target);
     global $db ;
-    $statement = $db -> prepare("INSERT INTO posts (text_post,profile_id) values (:text_post,1)");
+    $statement = $db -> prepare("INSERT INTO posts(text_post,images) values (:text_post,:images)");
     $statement-> execute(
         [
-            ':text_post'=> $text_post
-            // ':profile_id'=> $profile_id
-           
+            ':text_post'=> $text_post,
+            ':images' => $file_images
         ]
         );
    return ($statement->rowCount() == 1 );
 
 }
 
-// add photo
-// function addImageToPost($text_post,$post_image)
-// {
-//     global $db ;
-//     $statement = $db -> prepare("INSERT INTO posts (text_post,post_image) values (:text_post,:post_image)");
-//     $statement-> execute(
-//         [
-            
-//             ':text_post'=> $text_post,
-           
-//             ':post_image'=> $post_image
-           
-//         ]
-//         );
-//    return ($statement->rowCount() == 1 );
-
-// }
