@@ -2,8 +2,8 @@
 /**
  * Your code here
  */
-// require_once ('database.php');
-$db =new PDO ("mysql:host=localhost;dbname=facebook_db","root","");
+require_once ('database.php');
+
 function getPost()
 {
     global $db;
@@ -38,20 +38,18 @@ function getPostById($post_id)
  
  * @return boolean: true if deletion was successful, false otherwise
  */
-function deletePost($id)
+function deletePost($post_id)
 {
     global $db;
-    $statement = $db -> prepare("DELETE FROM items where id = :id_item ");
+    $statement = $db -> prepare("DELETE FROM posts where post_id = :post_id ;");
     $statement-> execute (
     [
-        ':id_item' => $id
+        ':post_id' => $post_id
     ]
     );
-    if ( $statement->rowCount() == 1):
-        return true;
-    else:
-        return false;
-    endif;
+    // if ( $statement->rowCount() == 1):
+    //     return true;
+    // endif;
 }
 
 /**
@@ -91,10 +89,28 @@ function createPost($text_post)
     $statement-> execute(
         [
             ':text_post'=> $text_post
-
+            // ':profile_id'=> $profile_id
            
         ]
         );
    return ($statement->rowCount() == 1 );
 
 }
+
+// add photo
+// function addImageToPost($text_post,$post_image)
+// {
+//     global $db ;
+//     $statement = $db -> prepare("INSERT INTO posts (text_post,post_image) values (:text_post,:post_image)");
+//     $statement-> execute(
+//         [
+            
+//             ':text_post'=> $text_post,
+           
+//             ':post_image'=> $post_image
+           
+//         ]
+//         );
+//    return ($statement->rowCount() == 1 );
+
+// }

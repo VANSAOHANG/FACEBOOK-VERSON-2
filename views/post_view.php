@@ -55,7 +55,7 @@
                     <div class="sub-menu-1">
                         <ul>
                             <li><a href="">Edit</a></li>
-                            <li><a href="">Delete</a></li>
+                            <li><a href="./controllers/delete_post.php?post_id=<?= $text_post['post_id'];?>">Delete</a></li>
                         </ul>
                     </div>
                 </h1>
