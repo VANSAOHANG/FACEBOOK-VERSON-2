@@ -53,6 +53,7 @@ CREATE TABLE `posts` (
   `media_location` varchar(255) NOT NULL,
   `create_datetime` datetime NOT NULL,
   `profile_id` int NOT NULL,
+  `images` varchar(255) NOT NULL,
   foreign key (profile_id) REFERENCES profiles(profile_id)
 ) ;
 

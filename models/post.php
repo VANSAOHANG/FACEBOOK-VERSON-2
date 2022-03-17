@@ -4,10 +4,21 @@
  */
 require_once ('database.php');
 
+function uploadImage($image_name){
+    $filename = $_FILES[$image_name]["name"];
+    $tempname = $_FILES[$image_name]["tmp_name"];
+    $fileType = $_FILES[$image_name]["type"];
+    $folder   = $filename;
+    
+    $fileInfo = pathinfo($_FILES[$image_name]["name"]);
+
+    move_uploaded_file($_FILES["file"]["tmp_name"],"../post_image" . uniqid() . '.' . $fileInfo['extension']);
+    return $filename;
+}
 function getPost()
 {
     global $db;
-    $statement=$db->prepare('SELECT post_id, text_post FROM posts ;');
+    $statement=$db->prepare('SELECT post_id, text_post,images FROM posts ;');
      $statement->execute();
     $text_post = $statement->fetchAll();
     return$text_post ;
@@ -22,7 +33,7 @@ function getPost()
 function getPostById($post_id)
 {
     global $db;
-    $statement = $db->prepare("SELECT post_id, text_post FROM posts where post_id = :post_id");
+    $statement = $db->prepare("SELECT post_id, text_post,images FROM posts where post_id = :post_id");
     $statement->execute(
         [
             ':post_id'=> $post_id
@@ -61,14 +72,15 @@ function deletePost($post_id)
  
  * @return boolean: true if deletion was successful, false otherwise
  */
-function updatePost($post_id, $text_post)
+function updatePost($post_id, $text_post,$images)
 {
     global  $db ; 
-    $statement = $db ->prepare ("UPDATE posts  SET  text_post = :text_post WHERE post_id = :post_id");
+    $statement = $db ->prepare ("UPDATE posts  SET  text_post = :text_post, images=:images WHERE post_id = :post_id");
     $statement-> execute(
         [
             ':post_id' => $post_id,
             ':text_post'=> $text_post,
+            ':images'=> $images
         ]
         );
         return ($statement->rowCount() == 1 );
@@ -81,15 +93,14 @@ function updatePost($post_id, $text_post)
  
  * @return boolean: true if create was successful, false otherwise
  */
-function createPost($text_post)
+function createPost($text_post,$filename)
 {
     global $db ;
-    $statement = $db -> prepare("INSERT INTO posts (text_post,profile_id) values (:text_post,1)");
+    $statement = $db -> prepare("INSERT INTO posts (text_post,profile_id,images) values (:text_post,1,:images)");
     $statement-> execute(
         [
-            ':text_post'=> $text_post
-            // ':profile_id'=> $profile_id
-           
+            ':text_post'=> $text_post,
+            ':images'=> $filename
         ]
         );
    return ($statement->rowCount() == 1 );
