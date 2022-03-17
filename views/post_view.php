@@ -8,7 +8,7 @@
                 </div>
                 <div class="write_something">
                     <span class ='w-100 border-0 p-2 rounded-pill write_something' >
-                        <a href="../views/post_create.php" class='your-mine'>  What is your mine?</a>
+                        <a href="../views/post_create.php" class='your-mine'>  What is your mind?</a>
                     </span>
                 </div>
             </div>
@@ -38,24 +38,31 @@
         <?php
         require_once ('./models/post.php');
         $text_posts  = getPost();
+        // print_r($text_posts);
         foreach($text_posts as $text_post):
+
         ?>
     <div class="post-view p-0 pt-3 pb-5">
         <div class="post-header">
             <div class="profile">
                 <div class="img_profile"> 
-                    <img src="images/man.png" alt="">
+                    <!-- <img src="images/man.png" alt=""> -->
+                    <img src="<?php echo $text_post['profile_image'];?>" alt="">
+           
                 </div>
                 <div class="user-name">
-                    <h6>Phearun Chhun</h6>
+                    <!-- <h6>Phearun Chhun</h6> -->
+                    <h6><?php echo $text_post['first_name'].' '.$text_post['last_name'];?> </h6>
+    
+                    <p><?=  $text_post['create_datetime'].' '?></p>
                 </div>
             </div>
             <div class="three-dot mx-4">
                 <h1>...
                     <div class="sub-menu-1">
                         <ul>
-                            <li><a href="">Edit</a></li>
-                            <li><a href="./controllers/delete_post.php?post_id=<?= $text_post['post_id'];?>">Delete</a></li>
+                            <li><a href="../views/edit_post.php?post_id=<?php echo $text_post['post_id'];?> ">Edit</a></li>
+                            <li><a href="../controllers/delete_post.php?post_id=<?php echo $text_post['post_id'];?> ">Delete</a></li>
                         </ul>
                     </div>
                 </h1>
@@ -67,17 +74,23 @@
         </div>
         <div class="post-image">
             <img class="w-100 p-0" src="../images/post.JPG" alt="">
-          
+        </div>
+        <div class="number-like-comment">
+            <p>1k</p>
+            <p>279 comments</p>
         </div>
         <div class="function_post post-react p-3">
             <div class="like">
-                <img src="../images/like.png" alt="">
-                <p>Like</p>
-                <!-- <i class="fa fa-thumbs-up"></i> -->
-            </div>
+                <a href="">
+                    <img src="../images/like.png" alt="">
+                    <p>Like</p>
+                </a>
+                </div>
             <div class="comment">
-                <img src="../images/comment.png" alt="">
-                <p>Comment</p>
+                <a href="views/comment.php" >
+                    <img src="../images/comment.png" alt="">
+                    <p>Comment</p>
+                </a>
             </div>
 
         </div>

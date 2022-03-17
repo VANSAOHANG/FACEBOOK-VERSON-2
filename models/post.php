@@ -7,7 +7,8 @@ require_once ('database.php');
 function getPost()
 {
     global $db;
-    $statement=$db->prepare('SELECT post_id, text_post FROM posts ;');
+    // $statement=$db->prepare('SELECT post_id, text_post,create_datetime,media_location  FROM posts ;');
+    $statement=$db->prepare('SELECT * FROM user_post ;');
      $statement->execute();
     $text_post = $statement->fetchAll();
     return$text_post ;
@@ -61,15 +62,14 @@ function deletePost($post_id)
  
  * @return boolean: true if deletion was successful, false otherwise
  */
-function updatePost($post_id, $text_post, $post_image)
+function updatePost($post_id, $text_post)
 {
     global  $db ; 
-    $statement = $db ->prepare ("UPDATE posts  SET  text_post = :text_post, post_image = :post_image WHERE post_id = :post_id");
+    $statement = $db ->prepare ("UPDATE posts  SET  text_post = :text_post WHERE post_id = :post_id");
     $statement-> execute(
         [
             ':post_id' => $post_id,
             ':text_post'=> $text_post,
-            ':post_image' => $post_image
         ]
         );
         return ($statement->rowCount() == 1 );
@@ -82,16 +82,13 @@ function updatePost($post_id, $text_post, $post_image)
  
  * @return boolean: true if create was successful, false otherwise
  */
-function createPost($text_post,$file_images)
+function createPost($text_post)
 {
-    $target = "../models/images/" .$_FILES['file_images']['name'];
-    move_uploaded_file($_FILES['file-images']['tmp_name'],$target);
     global $db ;
-    $statement = $db -> prepare("INSERT INTO posts(text_post,images) values (:text_post,:images)");
+    $statement = $db -> prepare("INSERT INTO posts (text_post,profile_id) values (:text_post,2)");
     $statement-> execute(
         [
             ':text_post'=> $text_post,
-            ':images' => $file_images
         ]
         );
    return ($statement->rowCount() == 1 );

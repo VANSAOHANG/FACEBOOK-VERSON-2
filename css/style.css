@@ -5,6 +5,7 @@
     top: 0;
     background-color: #fff;
 }
+
 .search {
     display: flex;
     justify-content: space-between;
@@ -68,7 +69,6 @@ form {
 }
 
 .header .content {
-    /* width: 80%; */
     font-size: 1.2rem;
 }
 
@@ -83,11 +83,11 @@ textarea {
     width: 100%;
     resize: none;
     border: none;
-    background: #cccc;
+    background: #e2e0e0cc;
 }
 
 .insert-post {
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
     padding: 15px;
     display: flex;
     justify-content: space-between;
@@ -133,10 +133,11 @@ textarea {
 
 .post,
 .post-view {
-    width: 100%;
+    width: 80%;
+    margin: auto;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     margin-top: 20px;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 10px;
 }
 
@@ -158,6 +159,21 @@ textarea {
     width: 45px;
     border: 2px solid orange;
     border-radius: 360px;
+}
+
+.profile .user-name {
+    margin-top: 15px;
+}
+
+.profiles {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.profiles .user-name {
+    margin-left: 10px;
+    margin-top: 6px;
 }
 
 .write_something {
@@ -214,6 +230,13 @@ textarea {
     display: block;
 }
 
+.like a,
+.comment a {
+    display: flex;
+    text-decoration: none;
+    color: #000;
+}
+
 
 /* ------------post-view-------------- */
 
@@ -227,14 +250,14 @@ textarea {
     border-top: 1.5px solid #cccbcbcc;
 }
 
-.post-header,
 .profile {
     display: flex;
-    justify-content: space-between;
 }
 
-.user-name {
-    margin-top: 20px;
+.post-header,
+.post-view .post-header .profile {
+    display: flex;
+    justify-content: space-between;
 }
 
 .post-react div img {
@@ -245,7 +268,16 @@ textarea {
 
 .post-react div {
     display: flex;
-    margin-top: 25px;
+    margin-top: 40px;
+}
+
+.number-like-comment {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .three-dot {
