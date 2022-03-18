@@ -8,7 +8,7 @@
                 </div>
                 <div class="write_something">
                     <span class ='w-100 border-0 p-2 rounded-pill write_something' >
-                        <a href="../views/post_create.php" class='your-mine'>  What is your mine?</a>
+                        <a href="../views/post_create.php" class='your-mine'>  What is your mind?</a>
                     </span>
                 </div>
             </div>
@@ -49,10 +49,15 @@
         <div class="post-header">
             <div class="profile">
                 <div class="img_profile"> 
-                    <img src="images/man.png" alt="">
+                    <!-- <img src="images/man.png" alt=""> -->
+                    <img src="<?php echo $text_post['profile_image'];?>" alt="">
+           
                 </div>
                 <div class="user-name">
-                    <h6>Phearun Chhun</h6>
+                    <!-- <h6>Phearun Chhun</h6> -->
+                    <h6><?php echo $text_post['first_name'].' '.$text_post['last_name'];?> </h6>
+    
+                    <p><?=  $text_post['create_datetime'].' '?></p>
                 </div>
             </div>
             <div class="three-dot mx-4">
@@ -66,14 +71,16 @@
                 </h1>
             </div>
         </div>
-        <div class="post-description m-2 pb-2">
+        <div class="post-description p-2">
             <!-- <p>[English Below] It is a long established fact that a reader will be distracted by the readable content of a page. </p> -->
             <?=  $text_post['text_post'] ?>
         </div>
-     
         <div class="post-image">
-            <img class="w-100 p-0" src="../post_image/<?=  $text_post['images'] ?>" alt="">
-            <?php ?>
+            <img class="w-100 p-0" src="../post_image/<?=$text_post['images'] ;?>" alt="">
+        </div>
+        <div class="number-like-comment">
+            <p>1k</p>
+            <p>279 comments</p>
         </div>
                 <div class="number-like-comment">
             <p>1k</p>
@@ -81,18 +88,34 @@
         </div>
         <div class="function_post post-react p-3">
             <div>
-                <button type='submit' class="like">
-                    <img src="../images/like.png" alt="">
-                    <p>Like</p>
+                    <button type='submit' class="like">
+                        <img src="../images/like.png" alt="">
+                        <p>Like</p>
                 </button>
             </div>
-            <div >
+            <div  >
                 <button type='submit' class="comment">
                     <img src="../images/comment.png" alt="">
                     <p>Comment</p>
                 </button>
             </div>
-
+        </div>
+    </div>
+    <div  class="post-view" style='display:none'>
+        <div class="profile">
+            <div class="img_profile"> 
+                <img src="../images/man.png" alt="">
+            </div>
+            <div class="user-name">
+                <h6>Phearun Chhun</h6>
+            </div>
+            <div style='border:1.5px solid black; width:100%;display:flex'>
+                <label for="comment" ></label>
+                <input type="text" class='w-100 p-1 border-0' style='outline:none'  id='comment' placeholder='write your comment here....'>
+                <button type='submit' style='background:none;border:none'>
+                    <img src="../images/send.png" style='width:35px; height:35px; margin:auto' alt="">
+                </button>
+            </div>
         </div>
     </div>
     <?php

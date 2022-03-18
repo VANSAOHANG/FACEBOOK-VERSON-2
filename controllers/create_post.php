@@ -1,7 +1,9 @@
 <?php
 require_once ("../models/post.php");
 $text_post = $_POST['text_post'];
-
+if(isset($_POST["submit"]))
+{
+  
  
 // $file = rand(1000,100000)."-".$_FILES['uploadfile']['name'];
 $file = 'IMG-'.uniqid()."-".$_FILES['uploadfile']['name'];
@@ -16,5 +18,5 @@ move_uploaded_file($file_loc,$folder.$file);
 <?php
 
 createPost($text_post,$file);
-
+}
 header("location: /index.php");

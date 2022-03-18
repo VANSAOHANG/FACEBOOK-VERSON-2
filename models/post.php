@@ -18,7 +18,8 @@ function uploadImage($image_name){
 function getPost()
 {
     global $db;
-    $statement=$db->prepare('SELECT post_id, text_post,images FROM posts ;');
+    // $statement=$db->prepare('SELECT post_id, text_post,create_datetime,media_location  FROM posts ;');
+    $statement=$db->prepare('SELECT * FROM user_post ;');
      $statement->execute();
     $text_post = $statement->fetchAll();
     return$text_post ;
@@ -117,21 +118,4 @@ function likePost($post_id)
         );
    return ($statement->rowCount() == 1 );
 
-}
-// add photo
-// function addImageToPost($text_post,$post_image)
-// {
-//     global $db ;
-//     $statement = $db -> prepare("INSERT INTO posts (text_post,post_image) values (:text_post,:post_image)");
-//     $statement-> execute(
-//         [
-            
-//             ':text_post'=> $text_post,
-           
-//             ':post_image'=> $post_image
-           
-//         ]
-//         );
-//    return ($statement->rowCount() == 1 );
-
-// }
+    }
