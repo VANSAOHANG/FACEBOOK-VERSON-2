@@ -73,7 +73,7 @@
             <?=  $text_post['text_post'] ?>
         </div>
         <div class="post-image">
-            <img class="w-100 p-0" src="../images/post.JPG" alt="">
+            <img class="w-100 p-0" src="../post_image/<?=$text_post['images'] ;?>" alt="">
         </div>
         <div class="number-like-comment">
             <p>1k</p>

@@ -1,10 +1,22 @@
 <?php
 require_once ("../models/post.php");
-if (isset($_POST['submit']))  {
+$text_post = $_POST['text_post'];
+if(isset($_POST["submit"]))
+{
+  
+ 
+// $file = rand(1000,100000)."-".$_FILES['uploadfile']['name'];
+$file = 'IMG-'.uniqid()."-".$_FILES['uploadfile']['name'];
+$file_loc = $_FILES['uploadfile']['tmp_name'];
+$file_size = $_FILES['uploadfile']['size'];
+$file_type = $_FILES['uploadfile']['type'];
+$folder="../post_image/";
+move_uploaded_file($file_loc,$folder.$file);
 
-    $text_post = $_POST['text_post'];
-    createPost($text_post);
+?>
+<img class="w-100 p-0" src="../post_image/<?=  $filename ?>;" alt="">
+<?php
+
+createPost($text_post,$file);
 }
-
-// addImageToPost($post_image);
 header("location: /index.php");

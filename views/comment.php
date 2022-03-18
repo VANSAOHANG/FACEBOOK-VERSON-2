@@ -9,11 +9,15 @@
                     <div class="user-name">
                         <h6>Phearun Chhun</h6>
                     </div>
-                    <div class="input-comment w-100 mt-3">
-                        <input type="text" class='w-100 ' >
+                    <div style='border:1.5px solid black; width:100%;display:flex'>
+                            <label for="comment" ></label>
+                            <input type="text" class='w-100 p-1 border-0' style='outline:none'  id='comment' placeholder='write your comment here....'>
+                            <button type='submit' style='background:none;border:none'>
+                                <img src="../images/send.png" style='width:35px; height:35px; margin:auto' alt="">
+                            </button>
                     </div>
-                </div>
         </div>
+    </div>
 </form>
 
 <?php require_once('../templates/footer.php') ?>

@@ -247,7 +247,7 @@ textarea {
     margin-top: 10px;
     justify-content: space-between;
     align-items: center;
-    border-top: 1.5px solid #cccbcbcc;
+    border: none;
 }
 
 .profile {
@@ -333,6 +333,10 @@ textarea {
 .three-dot:hover .sub-menu-1 ul li:hover a {
     color: white;
 }
-
+.post-image{
+    border-top: 1px solid #cccbcbcc;
+    border-bottom: 1px solid #cccbcbcc;
+    padding: 5px 0;
+}
 
 /* ------------end-post-view-------------- */
