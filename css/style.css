@@ -230,10 +230,12 @@ textarea {
     display: block;
 }
 
-.like a,
-.comment a {
+.like,
+.comment {
     display: flex;
     text-decoration: none;
+    background: none;
+    border: none;
     color: #000;
 }
 
