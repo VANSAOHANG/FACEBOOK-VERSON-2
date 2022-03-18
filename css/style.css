@@ -213,7 +213,22 @@ textarea {
     display: block;
 }
 
-
+.like,
+.comment {
+    display: flex;
+    text-decoration: none;
+    background: none;
+    border: none;
+    color: #000;
+}
+.number-like-comment {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 /* ------------post-view-------------- */
 
 .post-react {
@@ -232,9 +247,6 @@ textarea {
 .post-view .post-header .profile {
     display: flex;
     justify-content: space-between;
-}
-.user-name {
-    margin-top: 20px;
 }
 
 .post-react div img {

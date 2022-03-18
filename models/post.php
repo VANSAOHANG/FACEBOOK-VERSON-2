@@ -106,7 +106,18 @@ function createPost($text_post,$filename)
    return ($statement->rowCount() == 1 );
 
 }
+function likePost($post_id)
+{
+    global $db ;
+    $statement = $db -> prepare("INSERT INTO likes (post_id,profile_id) values (:post_id,1)");
+    $statement-> execute(
+        [
+            ':post_id'=> $post_id
+        ]
+        );
+   return ($statement->rowCount() == 1 );
 
+}
 // add photo
 // function addImageToPost($text_post,$post_image)
 // {

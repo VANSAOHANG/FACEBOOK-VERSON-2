@@ -22,8 +22,7 @@ if(isset($_POST["submit"]))
         print_r($post) ;
         $file = $post['images'];
     }
-    updatePost($post_id,$text_post,$file);  
-    
+    updatePost($post_id,$text_post,$file);    
 
 }
 header('location: /index.php');
