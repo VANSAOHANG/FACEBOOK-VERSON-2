@@ -36,7 +36,7 @@
             <div class='text-post'>
                 <textarea cols="12"  name='text_post'><?php echo $post['text_post'] ?></textarea> 
             </div>
-            <img class='w-100 ' src="../post_image/<?php echo $post['images'] ?>"  alt="" id ="img-post">
+            <img class='w-100 ' src="../post_image/<?php echo $post['images'] ?>" alt="" id ="img-post">
             <div class="function_post">
                 <div class="feature_photo">
                     <div class="img_post">

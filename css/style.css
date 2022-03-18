@@ -133,7 +133,7 @@ textarea {
 
 .post,
 .post-view {
-    width: 80%;
+    width: 90%;
     margin: auto;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     margin-top: 20px;
@@ -333,10 +333,12 @@ textarea {
 .three-dot:hover .sub-menu-1 ul li:hover a {
     color: white;
 }
-.post-image{
+
+.post-image {
     border-top: 1px solid #cccbcbcc;
     border-bottom: 1px solid #cccbcbcc;
     padding: 5px 0;
 }
+
 
 /* ------------end-post-view-------------- */
