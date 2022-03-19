@@ -107,6 +107,30 @@ function createPost($text_post,$filename)
    return ($statement->rowCount() == 1 );
 
 }
+// get commentAll
+function getComment($post_id){
+    global $db;
+    $statement = $db->prepare("SELECT*FROM comments where post_id=:post_id ");
+   $statement->execute(
+       [
+           ':post_id'=> $post_id
+       ]
+       );
+    $comment_text= $statement->fetchAll();
+    return $comment_text;
+}
+function comment($comment_text,$post_id)
+{
+    global $db;
+    $statement = $db -> prepare('INSERT INTO comments(comment_text,post_id,profile_id) values (:comment_text,:post_id,2)');
+    $statement -> execute(
+        [
+            ':comment_text'=> $comment_text,
+            ':post_id' => $post_id
+        ]
+        );
+    return ($statement -> rowCount() == 1);
+}
 function likePost($post_id)
 {
     global $db ;        
@@ -130,29 +154,4 @@ function get_like_posts($post_id){
     return $statement->fetchAll();
 }
 
-// ----------------------comment_post------------------
-
-function commentPost($post_id,$comment_text){
-
-    global $db ;
-    $statement = $db -> prepare("INSERT INTO comments (comment_text,profile_id,post_id) values (:comment_text,1,:post_id)");
-    $statement-> execute(
-        [
-            ':comment_text'=> $comment_text,
-            ':post_id'=> $post_id
-        ]
-        );
-    return ($statement->rowCount() == 1 );
-}
-function getComments($post_id){
-
-    global $db ;
-    $statement = $db -> prepare("SELECT comment_id,comment_text,post_id FROM comments WHERE post_id=:post_id;");
-    $statement-> execute(
-        [
-            ':post_id'=> $post_id
-        ]
-        );
     
-    return $statement->fetchAll();
-}

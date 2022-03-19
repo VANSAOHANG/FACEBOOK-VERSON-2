@@ -1,7 +1,9 @@
 <!-- create post -->
 
 <?php require_once('../templates/header.php')?>
+
 <form action="../controllers/create_post.php" method='post'enctype="multipart/form-data">
+
     <div class="create-post">
         <div class="header">
             <div class="content">
@@ -9,7 +11,7 @@
             </div>
             <div class="btn-close">
                 <button class="close-post bg-white  border-0">
-                <i class='fa fa-times-circle-o ' ></i>
+                    <i class='fa fa-times-circle-o'></i>
                 </button>
             </div>
         </div>
@@ -18,8 +20,9 @@
                 <img src="../images/man.png" alt="">
             </div>
             <div class="user-name">
-                <h6>Phearun Chhun</h6>
+                <h6>Vansao Hang</h6>
             </div>
+
         </div>
         <textarea class="p-2"  cols="12"  name='text_post' placeholder="write something"></textarea>
         <img class='w-100 ' src=""  alt="" id ="img-post">
