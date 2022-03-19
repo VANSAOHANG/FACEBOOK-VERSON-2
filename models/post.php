@@ -107,4 +107,27 @@ function createPost($text_post,$filename)
    return ($statement->rowCount() == 1 );
 
 }
-
+// get commentAll
+function getComment($post_id){
+    global $db;
+    $statement = $db->prepare("SELECT*FROM comments_post where post_id=:post_id ");
+   $statement->execute(
+       [
+           ':post_id'=> $post_id
+       ]
+       );
+    $comment_text= $statement->fetchAll();
+    return $comment_text;
+}
+function comment($comment_text,$post_id)
+{
+    global $db;
+    $statement = $db -> prepare('INSERT INTO comments(comment_text,post_id,profile_id) values (:comment_text,:post_id,2)');
+    $statement -> execute(
+        [
+            ':comment_text'=> $comment_text,
+            ':post_id' => $post_id
+        ]
+        );
+    return ($statement -> rowCount() == 1);
+}

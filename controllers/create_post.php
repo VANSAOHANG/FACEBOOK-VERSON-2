@@ -1,6 +1,7 @@
 <?php
 require_once ("../models/post.php");
 $text_post = $_POST['text_post'];
+$profile_id = 2;
 if(isset($_POST["submit"]))
 {
   
@@ -17,6 +18,6 @@ move_uploaded_file($file_loc,$folder.$file);
 <img class="w-100 p-0" src="../post_image/<?=  $filename ?>;" alt="">
 <?php
 
-createPost($text_post,$file);
+createPost($text_post,$file,$profile_id);
 }
 header("location: /index.php");

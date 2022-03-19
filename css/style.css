@@ -133,12 +133,11 @@ textarea {
 
 .post,
 .post-view {
-    width: 90%;
+    width: 80%;
     margin: auto;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
     margin-top: 20px;
     border-radius: 10px;
-    padding: 10px;
 }
 
 .post_mind {
@@ -243,10 +242,9 @@ textarea {
 /* ------------post-view-------------- */
 
 .post-react {
-    height: 20px;
     width: 90%;
+    height: 2px;
     margin: auto;
-    margin-top: 10px;
     justify-content: space-between;
     align-items: center;
     border: none;
@@ -262,10 +260,10 @@ textarea {
     justify-content: space-between;
 }
 
-.post-react div img {
+.post-react img {
     width: 25px;
     height: 25px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .post-react div {
@@ -276,7 +274,6 @@ textarea {
 .number-like-comment {
     width: 80%;
     margin: auto;
-    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
