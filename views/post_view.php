@@ -74,18 +74,25 @@
             <div class="post-image">
                 <img class="w-100 p-0" src="../post_image/<?=$text_post['images'] ;?>" alt="">
             </div>
-            <div class="number-like-comment" style='margin-top:5px'>
-                <p>1k</p>
-                <p>279 comments</p>
+            <?php
+                $post_id=$text_post['post_id'];
+                $comment_text = getComment($post_id);
+                $all_like_posts=get_like_posts($post_id);
+            ?>
+            <div class="number-like-comment">
+                
+                <p><?=count($all_like_posts)." "; ?>k</p>
+                <p><?=count($comment_text)." "; ?> comments</p>
             </div>
-            <hr>
             <div class="function_post post-react ">
-                <div class="click_like">
-                    <button type='submit' class="like" >
-                        <!-- <img src="../images/like.png" alt="" > -->
-                            <i class="far fa-thumbs-up mt-1 m-2 "></i> 
-                            Like
-                    </button>
+                <div>
+                    <a href="../controllers/like_post.php?post_id=<?php echo $text_post['post_id'];?> ">
+                        <button type='submit' class="like" name="like_post">
+                            <!-- <img src="../images/like.png" alt="" class="dark_like"> -->
+                            <i class="fa fa-thumbs-up fa-2x text-primary mt-1" class="blue_like"></i>
+                            <p>Like</p>
+                        </button>
+                    </a>
                 </div>
                 <div   class="click_comment">
                     <button  type='submit' name='submit'  id="<?= $text_post['post_id']?>" style='display:flex;background:none; border:none '>
@@ -97,41 +104,40 @@
             </div>
         </div>
         <!-- display comment -->
-        <?php
-            require_once('./models/post.php');
-            $post_id=$text_post['post_id'];
-            $comment_text = getComment($post_id);
-            foreach ($comment_text as $comment_texts):
-                if ($comment_text!= $text_post['post_id']):
-            ?>
-        <div class="display_comment" id='form-comment' style='width:60%;margin:auto;display:flex;'>
-            <div class="img_profile" style='width:10%'>
-                <img src="images/man.png" alt="">
+        <div class="post-view">
+            <?php
+                require_once('./models/post.php');
+                foreach ($comment_text as $comment_texts):
+                    if ($comment_text!= $text_post['post_id']):
+                ?>
+            <div class="display_comment" id='form-comment' class="w-100">
+                <div class="img_profile" style='width:10%'>
+                    <img src="images/man.png" alt="">
+                </div>
+                <div class="name_comment">
+                    <h6 style=''><?php echo $text_post['first_name'].' '.$text_post['last_name'];?></h6>
+                    <p><?=  $comment_texts['comment_text']?></p>
+                </div>
             </div>
-            <div class="name_comment" style=' background:#ccc;border-radius: 10px;'>
-                <p style=''><?php echo $text_post['first_name'].' '.$text_post['last_name'];?></p>
-                <p><?=  $comment_texts['comment_text']?></p>
-            </div>
+            <?php  endif?>
+            <?php endforeach?>
         </div>
-        <?php  endif?>
-        <?php endforeach?>
-        
         <!-- add comment -->
         <div class="comment_box" style='display:none' id='<?= $text_post['post_id'] ?>'>
-            <form action="../controllers/comment_post.php"  method='post' id='<?= $text_post['post_id'] ?>' style='width:80%; box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;border-radius: 10px;'>
-                    <div class="display_comment" style='display:flex;width:80%;margin:auto ;   '>
+            <form action="../controllers/comment_post.php"  method='post' id='<?= $text_post['post_id'] ?>'>
+                    <div class="display_comment" style='display:flex;width:100%;margin:auto;   '>
                         <div class="img_profile" style='width:10%'>
                             <img src="../images/man.png" alt="">
                         </div>
                         <label for="comment_post" style='margin:auto;width:80%;display:flex'>
-                            <input type="hidden" style='width:10%;background:none;border:none' id= 'comment_post_id' name = 'hidden-post-id' value='<?= $text_post['post_id'];?>' >
-                            <input type="text" style='width:80%;background:none;border:none' id= 'comment_post' name='comment-text' placeholder='write your comment here...'>
-                            <button type='submit' style='background:none;border:none' name='submit'>
+                            <input type="hidden" id= 'comment_post_id' name = 'hidden-post-id' value='<?= $text_post['post_id'];?>' >
+                            <input type="text" class="w-100" id= 'comment_post' name='comment-text' placeholder='write your comment here...'>
+                            <button type='submit' style='background:none;' name='submit'>
                                 <img src="../images/send.png" alt="" style='width:40px; height:40px;'>
                             </button>
                         </label>
                     </div>
-                </form>
+            </form>
     
         </div>
         

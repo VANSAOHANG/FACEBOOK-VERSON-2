@@ -6,9 +6,9 @@
     // print_r($text_posts);
     foreach($text_posts as $text_post):
     ?>
-        <form action="../controllers/comment_post.php"  method='post' id='form-comment' style='width:50%; box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;border-radius: 10px;'>
-      
-            <div class="display_comment" style='display:flex;width:80%;margin:auto ;   '>
+        <form action="../controllers/comment_post.php"  method='post' id='form-comment' style='width:100%; box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;border-radius: 10px;'>
+
+            <div class="display_comment" style='display:flex;width:100%;margin:auto ;   '>
                 <div class="img_profile" style='width:10%'>
                     <img src="../images/man.png" alt="">
                 </div>
