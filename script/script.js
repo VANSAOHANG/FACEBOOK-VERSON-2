@@ -16,11 +16,3 @@ for (const each_post of clickComment) {
 
     })
 }
-
-function show(element) {
-    element.style.display = 'block';
-}
-
-function onComment(_e) {
-    show(getComment);
-}

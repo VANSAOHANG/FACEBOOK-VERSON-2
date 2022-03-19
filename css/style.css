@@ -238,6 +238,15 @@ textarea {
     color: #000;
 }
 
+.number-like-comment {
+    width: 80%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 
 /* ------------post-view-------------- */
 
@@ -269,14 +278,6 @@ textarea {
 .post-react div {
     display: flex;
     margin-top: 40px;
-}
-
-.number-like-comment {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .three-dot {

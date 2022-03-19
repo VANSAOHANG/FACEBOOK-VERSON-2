@@ -8,7 +8,7 @@ if(isset($_POST["submit"]))
 {
     $post_id = $_POST['post_id'];
     $text_post = $_POST['text_post'];
-    // $file = $_FILES['uploadfile']['name'];
+    
     $file = 'IMG-'.uniqid()."-".$_FILES['uploadfile']['name'];
     $file_loc = $_FILES['uploadfile']['tmp_name'];
     $file_size = $_FILES['uploadfile']['size'];
@@ -22,8 +22,7 @@ if(isset($_POST["submit"]))
         print_r($post) ;
         $file = $post['images'];
     }
-    updatePost($post_id,$text_post,$file);  
-    
+    updatePost($post_id,$text_post,$file);    
 
 }
 header('location: /index.php');
