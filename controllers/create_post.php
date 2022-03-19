@@ -5,7 +5,7 @@ if(isset($_POST["submit"]))
 {
   
  
-// $file = rand(1000,100000)."-".$_FILES['uploadfile']['name'];
+
 $file = 'IMG-'.uniqid()."-".$_FILES['uploadfile']['name'];
 $file_loc = $_FILES['uploadfile']['tmp_name'];
 $file_size = $_FILES['uploadfile']['size'];

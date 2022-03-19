@@ -41,7 +41,7 @@
         <?php
         require_once ('./models/post.php');
         $text_posts  = getPost();
-        // print_r($text_posts);
+        
         foreach($text_posts as $text_post):
 
         ?>
@@ -49,14 +49,11 @@
         <div class="post-header">
             <div class="profile">
                 <div class="img_profile"> 
-                    <!-- <img src="images/man.png" alt=""> -->
                     <img src="<?php echo $text_post['profile_image'];?>" alt="">
            
                 </div>
                 <div class="user-name">
-                    <!-- <h6>Phearun Chhun</h6> -->
                     <h6><?php echo $text_post['first_name'].' '.$text_post['last_name'];?> </h6>
-    
                     <p><?=  $text_post['create_datetime'].' '?></p>
                 </div>
             </div>
@@ -78,20 +75,23 @@
         <div class="post-image">
             <img class="w-100 p-0" src="../post_image/<?=$text_post['images'] ;?>" alt="">
         </div>
+        <?php
+            $all_like_posts=get_like_posts($text_post['post_id']);
+        ?>
         <div class="number-like-comment">
-            <p>1k</p>
+            <p><?=count($all_like_posts)." "; ?>k</p>
             <p>279 comments</p>
         </div>
-                <div class="number-like-comment">
-            <p>1k</p>
-            <p>279 comments</p>
-        </div>
+
         <div class="function_post post-react p-3">
             <div>
-                    <button type='submit' class="like">
-                        <img src="../images/like.png" alt="">
+                <a href="../controllers/like_post.php?post_id=<?php echo $text_post['post_id'];?> ">
+                    <button type='submit' class="like" name="like_post">
+                        <!-- <img src="../images/like.png" alt="" class="dark_like"> -->
+                        <i class="fa fa-thumbs-up fa-2x text-primary mt-1" class="blue_like"></i>
                         <p>Like</p>
-                </button>
+                    </button>
+                </a>
             </div>
             <div  >
                 <button type='submit' class="comment">
@@ -101,20 +101,42 @@
             </div>
         </div>
     </div>
-    <div  class="post-view" style='display:none'>
-        <div class="profile">
-            <div class="img_profile"> 
-                <img src="../images/man.png" alt="">
+    <div class="post-view">
+
+        <?php
+            $comments=getComments($text_post['post_id']);
+            foreach($comments as $comment):
+                // print_r($comment["comment_text"]);
+                $comment_post=$comment["comment_text"];
+                echo "
+                    <div class='post_mind'>
+                        <div class='img_profile'>
+                            <img src='images/man.png' >
+                        </div>
+                        <div class='write_something post-comment w-100'>
+                            <span class ='w-100 border-0 p-2 rounded-pill write_something ' >
+                                <p  class='your-mine  text-dark w-auto my-0'>$comment_post</p>
+                            </span>
+                        </div>
+                    </div>";
+        ?>
+        <?php
+            endforeach;  
+        ?>
+        <div class="post_mind">
+            <div class="img_profile">
+                <img src="images/man.png" alt="">
             </div>
-            <div class="user-name">
-                <h6>Phearun Chhun</h6>
-            </div>
-            <div style='border:1.5px solid black; width:100%;display:flex'>
-                <label for="comment" ></label>
-                <input type="text" class='w-100 p-1 border-0' style='outline:none'  id='comment' placeholder='write your comment here....'>
-                <button type='submit' style='background:none;border:none'>
-                    <img src="../images/send.png" style='width:35px; height:35px; margin:auto' alt="">
-                </button>
+            <div class="write_something">
+                <form action="../controllers/comment_post.php" method="post">
+                    <span class ='w-100 border-0 p-2 rounded-pill write_something' >
+                        <input  type="number" style="display:none" value=<?php echo $text_post['post_id'];?> name="post_id">
+                        <input type="text" class='your-mine' name="comment" id="comment" placeholder="comment here">
+                        <button type="submit">
+                            <i class='fa fa-send fa-2x text-primary p-2'></i>   
+                        </button>
+                    </span>
+                </form> 
             </div>
         </div>
     </div>

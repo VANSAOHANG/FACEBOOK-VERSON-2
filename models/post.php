@@ -19,7 +19,7 @@ function getPost()
 {
     global $db;
     // $statement=$db->prepare('SELECT post_id, text_post,create_datetime,media_location  FROM posts ;');
-    $statement=$db->prepare('SELECT * FROM user_post ;');
+    $statement=$db->prepare('SELECT * FROM user_post ORDER BY post_id DESC;');
      $statement->execute();
     $text_post = $statement->fetchAll();
     return$text_post ;
@@ -109,13 +109,50 @@ function createPost($text_post,$filename)
 }
 function likePost($post_id)
 {
+    global $db ;        
+    $statement = $db -> prepare("INSERT INTO likes (post_id,profile_id) values (:post_id,1);");
+    $statement-> execute(
+        [
+            ':post_id'=> $post_id
+        ]
+    );
+   return ($statement->rowCount() == 1 );
+}
+
+function get_like_posts($post_id){
     global $db ;
-    $statement = $db -> prepare("INSERT INTO likes (post_id,profile_id) values (:post_id,1)");
+    $statement = $db -> prepare("SELECT * FROM like_post WHERE post_id=:post_id;");
     $statement-> execute(
         [
             ':post_id'=> $post_id
         ]
         );
-   return ($statement->rowCount() == 1 );
+    return $statement->fetchAll();
+}
 
-    }
+// ----------------------comment_post------------------
+
+function commentPost($post_id,$comment_text){
+
+    global $db ;
+    $statement = $db -> prepare("INSERT INTO comments (comment_text,profile_id,post_id) values (:comment_text,1,:post_id)");
+    $statement-> execute(
+        [
+            ':comment_text'=> $comment_text,
+            ':post_id'=> $post_id
+        ]
+        );
+    return ($statement->rowCount() == 1 );
+}
+function getComments($post_id){
+
+    global $db ;
+    $statement = $db -> prepare("SELECT comment_id,comment_text,post_id FROM comments WHERE post_id=:post_id;");
+    $statement-> execute(
+        [
+            ':post_id'=> $post_id
+        ]
+        );
+    
+    return $statement->fetchAll();
+}

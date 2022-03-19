@@ -12,7 +12,6 @@
                 <i class='fa fa-times-circle-o ' ></i>
                 </button>
             </div>
-            
         </div>
          <div class="profile">
             <div class="img_profile"> 

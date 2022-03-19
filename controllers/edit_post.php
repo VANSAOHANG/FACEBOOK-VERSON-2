@@ -8,7 +8,7 @@ if(isset($_POST["submit"]))
 {
     $post_id = $_POST['post_id'];
     $text_post = $_POST['text_post'];
-    
+
     $file = 'IMG-'.uniqid()."-".$_FILES['uploadfile']['name'];
     $file_loc = $_FILES['uploadfile']['tmp_name'];
     $file_size = $_FILES['uploadfile']['size'];
@@ -19,7 +19,6 @@ if(isset($_POST["submit"]))
         echo "";
     }else {
         $post = getPostById($post_id);
-        print_r($post) ;
         $file = $post['images'];
     }
     updatePost($post_id,$text_post,$file);    
