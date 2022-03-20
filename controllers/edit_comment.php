@@ -7,4 +7,4 @@ if(isset($_POST["submit"]))
     $comment_text = $_POST['comment_text'];
     editComment($comment_text,$comment_id);
 }
-header('location: /index.php');
+header('location: /views/post_view.php');

@@ -202,4 +202,3 @@ function get_like_posts($post_id){
     return $statement->fetchAll();
 }
 
-    
