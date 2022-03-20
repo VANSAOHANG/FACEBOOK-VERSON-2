@@ -32,7 +32,6 @@
                     <h5>Phearun Chhun</h5>
                 </div>
             </div>
-
             <div class='text-post'>
                 <textarea cols="12"  name='text_post'><?php echo $post['text_post'] ?></textarea> 
             </div>

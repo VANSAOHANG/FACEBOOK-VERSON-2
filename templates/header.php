@@ -53,7 +53,7 @@
                     <img src="../images/man.png" alt="">
                 </div>
                 <div class="user-name">
-                    <h6>Phearun Chhun</h6>
+                    <h6>Hang Vansao</h6>
                 </div>
             </div>
         </div>

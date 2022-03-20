@@ -18,7 +18,6 @@ function uploadImage($image_name){
 function getPost()
 {
     global $db;
-    // $statement=$db->prepare('SELECT post_id, text_post,create_datetime,media_location  FROM posts ;');
     $statement=$db->prepare('SELECT * FROM user_post ORDER BY post_id DESC;');
      $statement->execute();
     $text_post = $statement->fetchAll();
@@ -59,9 +58,8 @@ function deletePost($post_id)
         ':post_id' => $post_id
     ]
     );
-    // if ( $statement->rowCount() == 1):
-    //     return true;
-    // endif;
+    return ( $statement->rowCount() == 1);
+   
 }
 
 /**
@@ -118,6 +116,37 @@ function getComment($post_id){
        );
     $comment_text= $statement->fetchAll();
     return $comment_text;
+}
+function getCommentById($comment_id){
+    global $db;
+    $statement = $db->prepare("SELECT*FROM comments where comment_id=:comment_id ");
+   $statement->execute(
+       [
+           ':comment_id'=> $comment_id
+       ]
+       );
+    $comment_text= $statement->fetch();
+    return $comment_text;
+}
+function deleteComment($comment_id){
+    global $db;
+    $statement = $db -> prepare("DELETE FROM comments where comment_id = :comment_id;");
+    $statement-> execute (
+    [
+        ':comment_id' => $comment_id
+    ]
+    );
+}
+function editComment($comment_text,$comment_id){
+    global  $db ; 
+    $statement = $db ->prepare("UPDATE comments  SET  comment_text = :comment_text WHERE comment_id = :comment_id");
+    $statement-> execute(
+        [
+            ':comment_text' => $comment_text,
+            ':comment_id'=> $comment_id
+        ]
+        );
+        return ($statement->rowCount() == 1 );
 }
 function comment($comment_text,$post_id)
 {

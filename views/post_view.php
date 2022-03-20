@@ -55,7 +55,7 @@
                     <div class="user-name">
                         <!-- <h6>Phearun Chhun</h6> -->
                         <h6><?php echo $text_post['first_name'].' '.$text_post['last_name'];?></h6>
-                        <p><?php echo date_default_timezone_set('Asia/Phnom_Penh').$text_post['create_datetime']= date(" D   M   j  Y G:i:s ").'mns'?></p>
+                        <p><?php echo date_default_timezone_set('Asia/Phnom_Penh').$text_post['create_datetime']= date(" D-M-j-Y G:i:s ").'mns'?></p>
                     </div>
                 </div>
                 <div class="three-dot mx-4">
@@ -63,7 +63,7 @@
                         <div class="sub-menu-1">
                             <ul>
                                 <li><a href="../views/edit_post.php?post_id=<?php echo $text_post['post_id'];?> ">Edit</a></li>
-                                <li><a href="../controllers/delete_post.php?post_id=<?php echo $text_post['post_id'];?> ">Delete</a></li>
+                                <li><a href="../controllers/delete_post.php?post_id=<?php echo $text_post['post_id'];?>" onclick=" return confirm('Are you sure to delete this post?')">Delete</a></li>
                             </ul>
                     </h1>
                 </div>
@@ -104,19 +104,32 @@
             </div>
         </div>
         <!-- display comment -->
-        <div class="post-view">
+        <div class=" view_comment">
             <?php
                 require_once('./models/post.php');
                 foreach ($comment_text as $comment_texts):
                     if ($comment_text!= $text_post['post_id']):
                 ?>
-            <div class="display_comment" id='form-comment' class="w-100">
+            <div class="display_comment" id='form-comment' class="w-100" style='display:flex'>
                 <div class="img_profile" style='width:10%'>
                     <img src="images/man.png" alt="">
                 </div>
-                <div class="name_comment">
-                    <h6 style=''><?php echo $text_post['first_name'].' '.$text_post['last_name'];?></h6>
-                    <p><?=  $comment_texts['comment_text']?></p>
+                <div class="name_comment" style='display:flex;justify-content:space-between;align-item:center'>
+                    <div class="comment_box">
+                        <h6 style=''><?php echo $text_post['first_name'].' '.$text_post['last_name'];?></h6>
+                        <p><?=  $comment_texts['comment_text']?></p>
+                    </div>
+                    <div class="edit_delete_comment" >
+                        <div class="three-dot mx-4">
+                            <h4 >...
+                                <div class="sub-menu-1">
+                                    <ul>
+                                        <li><a href="../views/edit_comment.php?comment_id=<?php echo $comment_texts['comment_id'];?> ">Edit</a></li>
+                                        <li><a href="../controllers/delete_comment.php?comment_id=<?php echo $comment_texts['comment_id'];?>" onclick=" return confirm('Do you want to delete this comment?')">Delete</a></li>
+                                    </ul>
+                            </h4>
+                        </div>
+                    </div>
                 </div>
             </div>
             <?php  endif?>
@@ -138,9 +151,6 @@
                         </label>
                     </div>
             </form>
-    
         </div>
-        
-
     <?php endforeach;  ?>
 </div>
