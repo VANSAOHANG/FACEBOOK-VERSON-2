@@ -24,4 +24,4 @@ if(isset($_POST["submit"]))
     updatePost($post_id,$text_post,$file);    
 
 }
-header('location: /index.php');
+header('location: /views/post_view.php');

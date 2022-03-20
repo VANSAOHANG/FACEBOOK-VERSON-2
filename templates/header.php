@@ -21,42 +21,4 @@
 
 <body>
 
-    <div class="button_navigation_bar ">
-        <div class="search">
-            <ul class=" search-box">
-                <div class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">
-                            <img src="../images/facebook.png" alt="">
-                        </a>
-                    </li>
-                </div>
-                <div class="write_something">
-                    <input type="text" id="write_something"  placeholder="Search here">
-                </div>
-            </ul>
-            <ul class="nav nav-pills menu w-50">
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">
-                        <i class="material-icons md-36 text-primary">home</i>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">
-                         <i class="material-icons md-36 text-black"> people_outline</i>
-                    </a>
-                </li>
-            </ul>
-           
-            <div class="profiles">
-                <div class="img_profile"> 
-                    <img src="../images/man.png" alt="">
-                </div>
-                <div class="user-name">
-                    <h6>Phearun Chhun</h6>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    
+   

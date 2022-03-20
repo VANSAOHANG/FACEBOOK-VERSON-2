@@ -3,6 +3,25 @@
  * Your code here
  */
 require_once ('database.php');
+function register($firstname,$lastname,$email,$password,$country,$date0fbirth)
+{
+    global $db ;
+    $statement = $db -> prepare("INSERT INTO profiles (first_name,last_name,email_address,password,country,date_of_birth) values (:first_name,:last_name,:email_address,:password,:country,:date_of_birth)");
+    $statement-> execute(
+        [
+            ':first_name'=> $firstname,
+            ':last_name'=> $lastname,
+            ':email_address'=> $email,
+            ':password'=> $password,
+            ':country'=> $country,
+            ':date_of_birth'=> $date0fbirth
+        ]
+        );
+   return ($statement->rowCount() == 1 );
+
+}
+
+
 
 function uploadImage($image_name){
     $filename = $_FILES[$image_name]["name"];

@@ -20,4 +20,4 @@ move_uploaded_file($file_loc,$folder.$file);
 
 createPost($text_post,$file,$profile_id);
 }
-header("location: /index.php");
+header("location: /views/post_view.php");

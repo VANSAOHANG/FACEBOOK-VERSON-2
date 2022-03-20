@@ -1,10 +1,49 @@
+<?php require_once("../templates/header.php")?>
+<div class="button_navigation_bar ">
+        <div class="search">
+            <ul class=" search-box">
+                <div class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">
+                            <img src="../images/facebook.png" alt="">
+                        </a>
+                    </li>
+                </div>
+                <div class="write_something">
+                    <input type="text" id="write_something"  placeholder="Search here">
+                </div>
+            </ul>
+            <ul class="nav nav-pills menu w-50">
+                <li class="nav-item">
+                    <a class="nav-link " aria-current="page" href="#">
+                        <i class="material-icons md-36 text-primary">home</i>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="#">
+                         <i class="material-icons md-36 text-black"> people_outline</i>
+                    </a>
+                </li>
+            </ul>
+           
+            <div class="profiles">
+                <div class="img_profile"> 
+                    <img src="../images/man.png" alt="">
+                </div>
+                <div class="user-name">
+                    <h6>Phearun Chhun</h6>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    
 <div class="container">
     <!-- post -->
     <div class="post">
             <div class="post_mind">
                 <div class="img_profile">
-                    <img src="images/man.png" alt="">
+                    <img src="../images/man.png" alt="">
                 </div>
                 <div class="write_something">
                     <span class ='w-100 border-0 p-2 rounded-pill write_something' >
@@ -39,8 +78,11 @@
     </div>
     <!-- -------end post--------- -->
     <?php
-    require_once ('./models/post.php');
+    require_once ('../models/post.php');
+    // $email = $_POST["email"];
+    // $password = $_POST["password"];
     $text_posts  = getPost();
+
     // print_r($text_posts);
     foreach($text_posts as $text_post):
     ?>
@@ -49,7 +91,7 @@
                 <div class="profile">
                     <div class="img_profile"> 
                         <!-- <img src="images/man.png" alt=""> -->
-                        <img src="<?php echo $text_post['profile_image'];?>" alt="">
+                        <img src="<?php echo '../'.$text_post['profile_image'];?>" alt="">
             
                     </div>
                     <div class="user-name">
@@ -106,13 +148,13 @@
         <!-- display comment -->
         <div class="post-view">
             <?php
-                require_once('./models/post.php');
+                require_once('../models/post.php');
                 foreach ($comment_text as $comment_texts):
                     if ($comment_text!= $text_post['post_id']):
                 ?>
             <div class="display_comment" id='form-comment' class="w-100">
                 <div class="img_profile" style='width:10%'>
-                    <img src="images/man.png" alt="">
+                    <img src="../images/man.png" alt="">
                 </div>
                 <div class="name_comment">
                     <h6 style=''><?php echo $text_post['first_name'].' '.$text_post['last_name'];?></h6>
@@ -144,3 +186,4 @@
 
     <?php endforeach;  ?>
 </div>
+<?php require_once("../templates/footer.php")?>

@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 .button_navigation_bar {
     width: 100%;
     position: sticky;
@@ -399,7 +403,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #1877F2;
+    background-color: #fff;
 
 }
 .form_register{
@@ -410,7 +414,7 @@ button {
     width: 35%;
     margin: auto;
     padding: 10px;
-    background: white;
+    background: rgb(231, 231, 231);
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 
