@@ -2,7 +2,7 @@ var loadFile = function(event) {
     var image = document.getElementById('img-post');
     image.src = URL.createObjectURL(event.target.files[0]);
 };
-
+// display comment after click comment
 const showComment = document.querySelectorAll('.comment_box');
 const clickComment = document.querySelectorAll('.click_comment');
 for (const each_post of clickComment) {

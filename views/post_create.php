@@ -20,7 +20,7 @@
                 <img src="../images/man.png" alt="">
             </div>
             <div class="user-name">
-                <h6>Vansao Hang</h6>
+                <h6>Hang Vansao</h6>
             </div>
 
         </div>
@@ -49,11 +49,9 @@
                     <p>FEELING</p>
                 </div>
         </div>
-
     </div>
     <div class="btn-post">
         <button class="submit-post" name="submit">POST</button>
     </div>
 </form>
-
 <?php require_once("../templates/footer.php");?>

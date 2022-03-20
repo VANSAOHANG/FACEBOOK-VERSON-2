@@ -9,9 +9,11 @@ html {
     top: 0;
     background-color: #fff;
 }
-a{
+
+a {
     text-decoration: none;
 }
+
 .search {
     display: flex;
     justify-content: space-between;
@@ -85,6 +87,13 @@ form {
     padding-bottom: 20px;
 }
 
+.comment-close .btn-close {
+    position: absolute;
+    /* right: 10px; */
+    font-size: 1.8rem;
+    padding-bottom: 20px;
+}
+
 textarea {
     width: 100%;
     resize: none;
@@ -142,6 +151,13 @@ textarea {
     width: 80%;
     margin: auto;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.view_comment {
+    width: 80%;
+    margin: auto;
     margin-top: 20px;
     border-radius: 10px;
 }
@@ -345,59 +361,79 @@ textarea {
     border-bottom: 1px solid #cccbcbcc;
     padding: 5px 0;
 }
-.post-view .post-comment{
+
+.post-view .post-comment {
     display: block;
 }
+
 .post-view .post-comment span {
     text-align: left;
     /* display: flex; */
     justify-content: left;
     border: none;
 }
-.post-view form{
-    width: 100%; 
+
+.post-view form {
+    width: 100%;
 }
+
 
 /* ------------end-post-view-------------- */
 
 
 /* ------------comment-view-------------- */
 
-
-.comment_box form{
+.comment_box form {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-    border-radius: 10px;width:80%; box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;border-radius: 10px;
+    border-radius: 10px;
+    width: 80%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 10px;
 }
-.display_comment input{
-    background-color:#e2e0e0cc;
+
+.view_comment {
+    height: 6rem;
+    min-height: 5rem;
+    overflow: auto;
+}
+
+.display_comment input {
+    background-color: #e2e0e0cc;
     border: none;
     outline: none;
     margin-right: 20px;
     padding-left: 10px;
     border-radius: 5px;
 }
-.post-view .display_comment{
-    display:flex;
+
+.post-view .display_comment {
+    display: flex;
     padding: 0 0 15px 35px;
 }
-.display_comment input:focus{
+
+.display_comment input:focus {
     border: 1px solid #646464cc;
 }
+
 .name_comment {
     padding: 10px 10px 0 10px;
-    margin: 10px 0 0 10px ;
+    margin: 10px 0 0 10px;
     background: #d3d3d3cc;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+
+
 /* ------------end-post-view-------------- */
 
 
 /* ---------------register------------------- */
+
 button {
     border: none;
 }
-.register_container{
+
+.register_container {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -406,20 +442,21 @@ button {
     background-color: #fff;
 
 }
-.form_register{
-    width: 100%;
 
+.form_register {
+    width: 100%;
 }
-.form_register form{
+
+.form_register form {
     width: 35%;
     margin: auto;
     padding: 10px;
     background: rgb(231, 231, 231);
     border-radius: 8px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-
 }
-.form_register .profile{
+
+.form_register .profile {
     width: 60px;
     margin: auto;
     height: 60px;
@@ -427,10 +464,12 @@ button {
     justify-content: center;
     align-items: center;
 }
-.form_register .profile img{
+
+.form_register .profile img {
     width: 100%;
 }
-.register_container h4{
+
+.register_container h4 {
     text-align: center;
     font-weight: bolder;
 }
