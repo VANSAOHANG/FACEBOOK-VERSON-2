@@ -54,7 +54,7 @@
             <div class="function_post">
                 <div class="feature_photo">
                     <div class="img_post">
-                        <a href="views/post_create.php" style='color:green'>
+                        <a href="../views/post_create.php" style='color:green'>
                             <label>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-images" viewBox="0 0 16 16">
                                     <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
@@ -78,12 +78,9 @@
     </div>
     <!-- -------end post--------- -->
     <?php
-    require_once ('../models/post.php');
-    // $email = $_POST["email"];
-    // $password = $_POST["password"];
+    require_once ('../models/post.php');     
     $text_posts  = getPost();
 
-    // print_r($text_posts);
     foreach($text_posts as $text_post):
     ?>
         <div class="post-view p-0 pt-3 pb-5">

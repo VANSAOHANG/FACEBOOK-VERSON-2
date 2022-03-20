@@ -1,4 +1,6 @@
-
+<?php 
+require_once("../templates/header.php")
+?>
 <div class="register_container">
     <div class = "form_register">
         <h4>RESGISTER ACCOUNT</h4>
@@ -44,3 +46,6 @@
         </form>
     </div>
 </div>
+<?php
+ require_once("../templates/footer.php")
+?>

@@ -21,7 +21,18 @@ function register($firstname,$lastname,$email,$password,$country,$date0fbirth)
 
 }
 
-
+function getUserInfo($email,$password)
+{
+    global $db;
+    $statement=$db->prepare('SELECT * FROM profiles where email_address=:email && password=:passwords;');
+    $statement->execute([
+        ':email'=> $email,
+        ':passwords'=> $password
+    ]
+    );
+    $text_post = $statement->fetch();
+    return$text_post ;
+}
 
 function uploadImage($image_name){
     $filename = $_FILES[$image_name]["name"];

@@ -7,4 +7,10 @@ $password=$_POST["password"];
 $country=$_POST["country"];
 $date=$_POST["date"];
 register($firstname,$lastname,$email,$password,$country,$date);
+
+require_once("../templates/header.php");
+
 require_once("../views/signin.php");
+
+require_once("../templates/footer.php")
+?>
