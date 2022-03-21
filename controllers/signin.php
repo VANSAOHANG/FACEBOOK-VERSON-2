@@ -42,11 +42,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $userInfo=getUserInfo($email,$password);
-$_SESSION['email_login']=$userInfo["email_address"];
-$_SESSION['password_login']=$userInfo["password"];
-$_SESSION['profile_id']=$userInfo["profile_id"];
+if ($userInfo != ""){
+    $_SESSION['email_login']=$userInfo["email_address"];
+    $_SESSION['password_login']=$userInfo["password"];
+    $_SESSION['profile_id']=$userInfo["profile_id"];
+    $_SESSION['firstname']=$userInfo["first_name"];
+    $_SESSION['lastname']=$userInfo["last_name"];
+   
+}
+if (isset($_SESSION['email_login']) && $_SESSION['password_login']  ){
 
-
-if ($_SESSION['email_login']==$email && $_SESSION['password_login'] == $password  ){
-    header("location: /views/post_view.php");
+    if ($_SESSION['email_login']==$email && $_SESSION['password_login'] == $password  ){
+        header("location: /views/post_view.php");
+    }else{
+        header("location: /index.php");
+    }
+}else{
+    header("location: /index.php");
 }

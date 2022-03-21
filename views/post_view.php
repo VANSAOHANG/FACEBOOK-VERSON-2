@@ -1,4 +1,4 @@
-<?php require_once("../templates/header.php");session_start();?>
+<?php require_once("../templates/header.php");session_start(); $firstname = $_SESSION['firstname']; $lastname = $_SESSION['lastname']?>
 <div class="button_navigation_bar ">
         <div class="search">
             <ul class=" search-box">
@@ -30,9 +30,12 @@
                 <div class="img_profile"> 
                     <img src="../images/man.png" alt="">
                 </div>
-                <div class="user-name">
-                    <h6>Hang Vansao</h6>
+                <div class="user-name mx-3">
+                    <h6><?php echo $firstname." ".$lastname?></h6>
                 </div>
+                <a href="../controllers/sign_out.php">
+                    <i class="fas fa-sign-out-alt fa-2x mx-4 text-primary"></i>
+                </a>
             </div>
         </div>
     </div>
