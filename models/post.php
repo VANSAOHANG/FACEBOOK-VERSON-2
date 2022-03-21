@@ -208,7 +208,7 @@ function likePost($post_id,$profile_id)
 
 function get_like_posts($post_id){
     global $db ;
-    $statement = $db -> prepare("SELECT * FROM like_post WHERE post_id=:post_id;");
+    $statement = $db -> prepare("SELECT * FROM likes WHERE post_id=:post_id;");
     $statement-> execute(
         [
             ':post_id'=> $post_id
