@@ -1,17 +1,9 @@
-html {
-    scroll-behavior: smooth;
-}
-
 .button_navigation_bar {
     width: 100%;
     position: sticky;
     z-index: 1;
     top: 0;
     background-color: #fff;
-}
-
-a {
-    text-decoration: none;
 }
 
 .search {

@@ -22,7 +22,6 @@ require_once("../templates/header.php")
                             <label for="floatingInputGrid">Last name</label>
                         </div>
                     </div>
-        
                 </div>
                 <div class="form-floating mb-3">
                     <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com" required>

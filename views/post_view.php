@@ -1,49 +1,8 @@
-<?php require_once("../templates/header.php");session_start(); $firstname = $_SESSION['firstname']; $lastname = $_SESSION['lastname']?>
-<div class="button_navigation_bar ">
-        <div class="search">
-            <ul class=" search-box">
-                <div class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">
-                            <img src="../images/facebook.png" alt="">
-                        </a>
-                    </li>
-                </div>
-                <div class="write_something">
-                    <input type="text" id="write_something"  placeholder="Search here">
-                </div>
-            </ul>
-            <ul class="nav nav-pills menu w-50">
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">
-                        <i class="material-icons md-36 text-primary">home</i>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="#">
-                         <i class="material-icons md-36 text-black"> people_outline</i>
-                    </a>
-                </li>
-            </ul>
-           
-                <div class="profiles">
-                    <div class="img_profile"> 
-                        <img src="../images/man.png" alt="">
-                    </div>
-                  <a href="../views/profile_form.php">
-                      <div class="user-name mx-3">
-                          <h6><?php echo $firstname." ".$lastname?></h6>
-                      </div>
-                  </a>
-                </div>
-                <a href="../controllers/sign_out.php">
-                    <i class="fas fa-sign-out-alt fa-2x mx-4 text-primary"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-
-    
+<?php require_once("../templates/header.php");
+session_start(); $firstname = $_SESSION['firstname']; 
+$lastname = $_SESSION['lastname'];
+require_once('../templates/navigation_bar.php');
+?>
 <div class="container">
     <!-- post -->
     <div class="post">
@@ -53,7 +12,7 @@
                 </div>
                 <div class="write_something">
                     <span class ='w-100 border-0 p-2 rounded-pill write_something' >
-                        <a href="../views/post_create.php" class='your-mine'>  What is your mind?</a>
+                        <a href="../views/post_create.php" class='your-mine' style='text-decoration:none'>  What is your mind?</a>
                     </span>
                 </div>
             </div>
@@ -134,9 +93,8 @@
             </div>
             <div class="function_post post-react ">
                 <div>
-                    <a href="../controllers/like_post.php?post_id=<?php echo $text_post['post_id'];?> ">
-                        <button type='submit' class="like" name="like_post">
-                            <!-- <img src="../images/like.png" alt="" class="dark_like"> -->
+                    <a href="../controllers/like_post.php?post_id=<?php echo $text_post['post_id'];?> " style='text-decoration:none'>
+                        <button type='submit' class="like" name="like_post" >
                             <i class="fa fa-thumbs-up fa-2x text-primary mt-1" class="blue_like"></i>
                             <p>Like</p>
                         </button>

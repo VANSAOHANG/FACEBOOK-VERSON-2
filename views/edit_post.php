@@ -2,7 +2,11 @@
 
 <?php require_once('../templates/header.php');
  require_once('../models/post.php');
-session_start(); $firstname = $_SESSION['firstname']; $lastname = $_SESSION['lastname']
+
+session_start(); 
+$firstname = $_SESSION['firstname']; 
+$lastname = $_SESSION['lastname'];
+require_once('../templates/navigation_bar.php');
 ?>
 <div>
     <?php

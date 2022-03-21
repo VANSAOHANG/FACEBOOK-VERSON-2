@@ -2,7 +2,8 @@
 
 <?php require_once('../templates/header.php');session_start(); 
 $firstname = $_SESSION['firstname']; 
-$lastname = $_SESSION['lastname']
+$lastname = $_SESSION['lastname'];
+require_once('../templates/navigation_bar.php');
 ?>
 
 <form action="../controllers/create_post.php" method='post' enctype="multipart/form-data">
