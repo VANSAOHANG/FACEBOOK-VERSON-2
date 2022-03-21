@@ -18,11 +18,11 @@
                         <i class="material-icons md-36 text-primary">home</i>
                     </a>
                 </li>
-                <li class="nav-item ">
+                <!-- <li class="nav-item ">
                     <a class="nav-link" href="#">
                          <i class="material-icons md-36 text-black"> people_outline</i>
                     </a>
-                </li>
+                </li> -->
             </ul>
            
                 <div class="profiles">

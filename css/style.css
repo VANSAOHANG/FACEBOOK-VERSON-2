@@ -219,10 +219,6 @@ textarea {
     text-align: center;
 }
 
-.feature_photo {
-    border-right: 2px solid #cccbcbcc;
-}
-
 .feature_photo,
 .feature_feeling {
     width: 50%;
