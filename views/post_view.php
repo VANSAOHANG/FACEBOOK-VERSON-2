@@ -1,4 +1,4 @@
-<?php require_once("../templates/header.php")?>
+<?php require_once("../templates/header.php");session_start();?>
 <div class="button_navigation_bar ">
         <div class="search">
             <ul class=" search-box">
@@ -78,9 +78,12 @@
     </div>
     <!-- -------end post--------- -->
     <?php
-    require_once ('../models/post.php');     
-    $text_posts  = getPost();
+    require_once ('../models/post.php');   
+    
+    $password= $_SESSION['password_login'];
+    $email= $_SESSION['email_login'];
 
+    $text_posts  = getPost($email,$password);
     foreach($text_posts as $text_post):
     ?>
         <div class="post-view p-0 pt-3 pb-5">
@@ -88,7 +91,7 @@
                 <div class="profile">
                     <div class="img_profile"> 
                         <!-- <img src="images/man.png" alt=""> -->
-                        <img src="<?php echo '../'.$text_post['profile_image'];?>" alt="">
+                        <img src="../images/man.png" alt="">
             
                     </div>
                     <div class="user-name">
@@ -111,7 +114,7 @@
                 <?=  $text_post['text_post'] ?>
             </div>
             <div class="post-image">
-                <img class="w-100 p-0" src="../post_image/<?=$text_post['images'] ;?>" alt="">
+                <img class="w-100 p-0" src="../post_image/<?=$text_post['post_image'] ;?>" alt="">
             </div>
             <?php
                 $post_id=$text_post['post_id'];

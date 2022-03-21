@@ -45,11 +45,14 @@ function uploadImage($image_name){
     move_uploaded_file($_FILES["file"]["tmp_name"],"../post_image" . uniqid() . '.' . $fileInfo['extension']);
     return $filename;
 }
-function getPost()
+function getPost($email,$password)
 {
     global $db;
-    $statement=$db->prepare('SELECT * FROM user_post ORDER BY post_id DESC;');
-     $statement->execute();
+    $statement=$db->prepare('SELECT * FROM user_posts where email_address=:email && password=:passwords ORDER BY post_id DESC;');
+    $statement->execute([
+        ':email'=> $email,
+        ':passwords'=> $password
+    ]);
     $text_post = $statement->fetchAll();
     return$text_post ;
 }
@@ -122,13 +125,14 @@ function updatePost($post_id, $text_post,$images)
  
  * @return boolean: true if create was successful, false otherwise
  */
-function createPost($text_post,$filename)
+function createPost($text_post,$filename,$profile_id)
 {
     global $db ;
-    $statement = $db -> prepare("INSERT INTO posts (text_post,profile_id,images) values (:text_post,1,:images)");
+    $statement = $db -> prepare("INSERT INTO posts (text_post,profile_id,images) values (:text_post,:profile_id,:images)");
     $statement-> execute(
         [
             ':text_post'=> $text_post,
+            ':profile_id' => $profile_id,
             ':images'=> $filename
         ]
         );

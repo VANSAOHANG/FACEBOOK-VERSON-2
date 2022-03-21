@@ -1,10 +1,8 @@
-<?php
-  	// Start new or resume existing session.
-  	session_start();?>
+
 <div class="register_container">
     <div class = "form_register">
         <h4>LOGIN ACCOUNT</h4>
-        <form action="../controllers/login.php" method="post">
+        <form action="../controllers/signin.php" method="post">
                 <div class="profile mt-4 mb-3">
                     <img src="../images/facebook.png" alt="">
                 </div>
@@ -24,19 +22,17 @@
     </div>
 </div>
 <?php
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $email_address = 
-        $pass = "123";
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        if (!empty($username) and !empty($password) and $username == $user and $password == $pass) {
-            $_SESSION['login'] = $username;
-            header('Location: ../index.php');
-        } else {
-            echo "Error login";
-        }
-    }
+    // if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    //     $email_address = 
+    //     $pass = "123";
+    //     $email = $_POST['email'];
+    //     $password = $_POST['password'];
+    //     if (!empty($username) and !empty($password) and $username == $user and $password == $pass) {
+    //         $_SESSION['login'] = $username;
+    //         header('Location: ../index.php');
+    //     } else {
+    //         echo "Error login";
+    //     }
+    // }
 ?>
-<?php
- require_once("../templates/footer.php")
- ?>
+<!--  -->

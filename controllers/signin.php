@@ -2,11 +2,12 @@
 // Start new or resume existing session.
 session_start();
 require_once('../models/post.php');
-$_SESSION['email_error']= "";
-$_SESSION['password_error']= "";
+// $vansao=$_SESSION['email_error'];
+$_SESSION['password_error']= "vvv";
 $email_valid=false;
 $password_valid=false;
 $is_register_valid = false;
+$_SESSION['email']=$_POST['email'];
 function validate_email($email)
 {
     // function to check if email is correct (must contain '@')
@@ -14,7 +15,7 @@ function validate_email($email)
 }
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = htmlspecialchars($_POST['email']);
-    $password = htmlspecialchars($_POST['password']);
+    $password = $_POST['password'];
 
 
     if (empty($email)){
@@ -41,9 +42,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 $userInfo=getUserInfo($email,$password);
-$email_login=$userInfo["email_address"];
-$password_login=$userInfo["password"];
+$_SESSION['email_login']=$userInfo["email_address"];
+$_SESSION['password_login']=$userInfo["password"];
+$_SESSION['profile_id']=$userInfo["profile_id"];
 
-if ($email_login==$email && $password_login == $password  ){
-    require_once("../views/post_view.php");
+
+if ($_SESSION['email_login']==$email && $_SESSION['password_login'] == $password  ){
+    header("location: /views/post_view.php");
 }

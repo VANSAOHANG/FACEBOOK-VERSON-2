@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once ("../models/post.php");
 $comment_text = $_POST['comment-text'];
 $post_id = $_POST['hidden-post-id'];
