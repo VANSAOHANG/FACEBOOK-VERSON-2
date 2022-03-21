@@ -1,7 +1,9 @@
 <!-- create post -->
 
-<?php require_once('../templates/header.php')?>
-<?php require_once('../models/post.php')?>
+<?php require_once('../templates/header.php');
+ require_once('../models/post.php');
+session_start(); $firstname = $_SESSION['firstname']; $lastname = $_SESSION['lastname']
+?>
 <div>
     <?php
         // TO DO:
@@ -29,7 +31,7 @@
                     <img src="../images/man.png" alt="">
                 </div>
                 <div class="user-name">
-                    <h5>Phearun Chhun</h5>
+                    <h5><?=  $firstname.' '.$lastname?></h5>
                 </div>
             </div>
             <div class='text-post'>

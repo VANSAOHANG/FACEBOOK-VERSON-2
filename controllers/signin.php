@@ -48,6 +48,8 @@ if ($userInfo != ""){
     $_SESSION['profile_id']=$userInfo["profile_id"];
     $_SESSION['firstname']=$userInfo["first_name"];
     $_SESSION['lastname']=$userInfo["last_name"];
+    $_SESSION['country']=$userInfo["country"];
+    $_SESSION['date_of_birth']=$userInfo["date_of_birth"];
    
 }
 if (isset($_SESSION['email_login']) && $_SESSION['password_login']  ){

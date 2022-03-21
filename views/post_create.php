@@ -1,6 +1,9 @@
 <!-- create post -->
 
-<?php require_once('../templates/header.php');session_start(); $firstname = $_SESSION['firstname']; $lastname = $_SESSION['lastname']?>
+<?php require_once('../templates/header.php');session_start(); 
+$firstname = $_SESSION['firstname']; 
+$lastname = $_SESSION['lastname']
+?>
 
 <form action="../controllers/create_post.php" method='post' enctype="multipart/form-data">
 
@@ -24,7 +27,7 @@
             </div>
             
 
-                </div> -->
+                </div> 
              </div>
         <textarea class="p-2"  cols="12"  name='text_post' placeholder="write something"></textarea>
         <img class='w-100 ' src=""  alt="" id ="img-post">

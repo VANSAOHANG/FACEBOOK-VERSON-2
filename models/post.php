@@ -192,13 +192,14 @@ function comment($comment_text,$post_id)
         );
     return ($statement -> rowCount() == 1);
 }
-function likePost($post_id)
+function likePost($post_id,$profile_id)
 {
     global $db ;        
-    $statement = $db -> prepare("INSERT INTO likes (post_id) values (:post_id);");
+    $statement = $db -> prepare("INSERT INTO likes  (post_id,profile_id) values (:post_id,:profile_id);");
     $statement-> execute(
         [
-            ':post_id'=> $post_id
+            ':post_id'=> $post_id,
+            ':profile_id'=> $profile_id
         ]
     );
    return ($statement->rowCount() == 1 );

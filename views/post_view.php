@@ -30,12 +30,11 @@
                     <div class="img_profile"> 
                         <img src="../images/man.png" alt="">
                     </div>
-                    <div class="user-name">
-                         <h6>Phearun Chhun</h6>
-                    </div>
-                </div>
-                <div class="user-name mx-3">
-                    <h6><?php echo $firstname." ".$lastname?></h6>
+                  <a href="../views/profile_form.php">
+                      <div class="user-name mx-3">
+                          <h6><?php echo $firstname." ".$lastname?></h6>
+                      </div>
+                  </a>
                 </div>
                 <a href="../controllers/sign_out.php">
                     <i class="fas fa-sign-out-alt fa-2x mx-4 text-primary"></i>
