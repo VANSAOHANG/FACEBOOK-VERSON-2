@@ -120,3 +120,12 @@ INSERT INTO `comments` (`comment_id`,`comment_datetime`,`comment_text`,`profile_
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- create view user post 
+
+CREATE VIEW 'user_posts' AS 
+SELECT posts.post_id,posts.text_post,profiles.password,posts.images AS 'post_image', profiles.profile_id,profiles.first_name,profiles.last_name,profiles.email_address,posts.create_datetime,profiles.profile AS 'profile_image '
+FROM posts JOIN profiles ON posts.profile_id = profiles.profile_id;
+-- create view comments_post
+CREATE VIEW 'comments_post' AS 
+SELECT comments.comment_id, comments.comment_text, comments.post_id 
+FROM  comments ;

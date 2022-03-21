@@ -15,6 +15,6 @@ if(isset($_POST["submit"]))
 
 } 
 echo '<script type="text/JavaScript"> location.reload(); </script>';
-header("location:/views/profile_form.php");
+header("location: ../views/profile_form.php");
 // header("Refresh:0; url=../views/profile_form.php");
 

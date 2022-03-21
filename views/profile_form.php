@@ -74,5 +74,5 @@ require_once('../templates/navigation_bar.php');
             </div>
         </div>
     </div>
-</div>
-</div>
+    </div>
+</form>
