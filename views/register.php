@@ -12,7 +12,7 @@ require_once("../templates/header.php")
                 <div class="row g-2 mb-3">
                     <div class="col-md">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" onkeyup="if (/[^|a-zA-Z0-9]+/g.test(this.value)) this.value = this.value.replace(/[^|a-zA-Z0-9]+/g,'')" name="firstname" placeholder="First name" required>
+                            <input type="text" class="form-control" id="floatingInput"  name="firstname" placeholder="First name" required>
                             <label for="floatingInputGrid">First name</label>
                         </div>
                     </div>
@@ -46,6 +46,7 @@ require_once("../templates/header.php")
         </form>
     </div>
 </div>
+
 <?php
  require_once("../templates/footer.php")
 ?>

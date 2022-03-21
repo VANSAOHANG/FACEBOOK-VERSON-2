@@ -111,7 +111,7 @@
                 <?=  $text_post['text_post'] ?>
             </div>
             <div class="post-image">
-                <img class="w-100 p-0" src="../post_image/<?=$text_post['images'] ;?>" alt="">
+                <img class="w-100 p-0" src="../post_image/<?=$text_post['post_image'] ;?>" alt="">
             </div>
             <?php
                 $post_id=$text_post['post_id'];

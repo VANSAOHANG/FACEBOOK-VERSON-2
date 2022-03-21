@@ -1,7 +1,5 @@
 <?php
-/**
- * Your code here
- */
+
 require_once ('database.php');
 function register($firstname,$lastname,$email,$password,$country,$date0fbirth)
 {
@@ -48,8 +46,8 @@ function uploadImage($image_name){
 function getPost()
 {
     global $db;
-    $statement=$db->prepare('SELECT * FROM user_post ORDER BY post_id DESC;');
-     $statement->execute();
+    $statement=$db->prepare('SELECT * FROM user_posts ORDER BY post_id DESC;');
+    $statement->execute();
     $text_post = $statement->fetchAll();
     return$text_post ;
 }
@@ -125,7 +123,7 @@ function updatePost($post_id, $text_post,$images)
 function createPost($text_post,$filename)
 {
     global $db ;
-    $statement = $db -> prepare("INSERT INTO posts (text_post,profile_id,images) values (:text_post,1,:images)");
+    $statement = $db -> prepare("INSERT INTO posts (text_post,images) values (:text_post,:images)" );
     $statement-> execute(
         [
             ':text_post'=> $text_post,
@@ -181,7 +179,7 @@ function editComment($comment_text,$comment_id){
 function comment($comment_text,$post_id)
 {
     global $db;
-    $statement = $db -> prepare('INSERT INTO comments(comment_text,post_id,profile_id) values (:comment_text,:post_id,2)');
+    $statement = $db -> prepare('INSERT INTO comments(comment_text,post_id,profile_id) values (:comment_text,:post_id,15)');
     $statement -> execute(
         [
             ':comment_text'=> $comment_text,
@@ -193,7 +191,7 @@ function comment($comment_text,$post_id)
 function likePost($post_id)
 {
     global $db ;        
-    $statement = $db -> prepare("INSERT INTO likes (post_id,profile_id) values (:post_id,1);");
+    $statement = $db -> prepare("INSERT INTO likes (post_id) values (:post_id);");
     $statement-> execute(
         [
             ':post_id'=> $post_id
