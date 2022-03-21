@@ -1,3 +1,4 @@
+
 <div class="button_navigation_bar ">
         <div class="search">
             <ul class=" search-box">
@@ -18,11 +19,7 @@
                         <i class="material-icons md-36 text-primary">home</i>
                     </a>
                 </li>
-                <!-- <li class="nav-item ">
-                    <a class="nav-link" href="#">
-                         <i class="material-icons md-36 text-black"> people_outline</i>
-                    </a>
-                </li> -->
+               
             </ul>
            
                 <div class="profiles">

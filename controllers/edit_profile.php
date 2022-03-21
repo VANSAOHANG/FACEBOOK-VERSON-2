@@ -3,12 +3,17 @@ session_start();
 require_once ("../models/post.php");
 if(isset($_POST["submit"]))
 {
-    $firstname = $_POST['fisrtname'];
-    $lastname = $_POST['lastname'];
-    $userEmail = $_POST['email_address'];
-    $country = $_POST['country'];
-    $dateOfBirth = $_POST['date_of_birth'];
+    $editFirstName = $_POST['editFirstName'];
+    $editLastName = $_POST['editLastName'];
+    $_SESSION['editUserEmail']  = $_POST['editUserEmail'];
+    $editCountry = $_POST['editCountry'];
+    $editDateOfBirth = $_POST['editDateOfBirth'];
     $profile_id = $_SESSION['profile_id'];
-    updateProfile($firstName,$lastName,$userEmail,$country,$dateOfBirth,$profile_id);
+    if(updateProfile($editFirstName,$editLastName,$_SESSION['editUserEmail'],$editCountry,$editDateOfBirth,$profile_id)){
+        $_SESSION['isEdit'] = true;
+    };
+
 } 
-header("location:/views/profile_form.php");
+echo '<script type="text/JavaScript"> location.reload(); </script>';
+header("location: ../views/profile_form.php");
+
