@@ -183,7 +183,7 @@ function editComment($comment_text,$comment_id){
 function comment($comment_text,$post_id)
 {
     global $db;
-    $statement = $db -> prepare('INSERT INTO comments(comment_text,post_id,profile_id) values (:comment_text,:post_id,15)');
+    $statement = $db -> prepare('INSERT INTO comments(comment_text,post_id,profile_id) values (:comment_text,:post_id,2)');
     $statement -> execute(
         [
             ':comment_text'=> $comment_text,
@@ -207,7 +207,7 @@ function likePost($post_id,$profile_id)
 
 function get_like_posts($post_id){
     global $db ;
-    $statement = $db -> prepare("SELECT * FROM like_post WHERE post_id=:post_id;");
+    $statement = $db -> prepare("SELECT * FROM likes WHERE post_id=:post_id;");
     $statement-> execute(
         [
             ':post_id'=> $post_id
