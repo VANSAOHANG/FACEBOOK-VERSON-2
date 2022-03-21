@@ -50,7 +50,7 @@ if ($userInfo != ""){
     $_SESSION['lastname']=$userInfo["last_name"];
     $_SESSION['country']=$userInfo["country"];
     $_SESSION['date_of_birth']=$userInfo["date_of_birth"];
-   
+    $_SESSION['isEdit']=false;
 }
 if (isset($_SESSION['email_login']) && $_SESSION['password_login']  ){
 
