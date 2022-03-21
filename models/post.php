@@ -216,20 +216,4 @@ function get_like_posts($post_id){
         );
     return $statement->fetchAll();
 }
-// edit profile
-function updateProfile($firstname,$lastname,$emailAddress,$country,$dateOfBirth,$profile_id){
-    global  $db ; 
-    $statement = $db ->prepare ("UPDATE profiles  SET  first_name = :first_name,last_name=:last_name,email_address=:email_address,country=:country,date_of_birth=:date_of_birth  WHERE profile_id = :profile_id");
-    $statement-> execute(
-        [
-            ':first_name' => $firstname,
-            ':last_name'=> $lastname,
-            ':email_address'=> $emailAddress,
-            ':country'=> $country,
-            ':date_of_birth'=> $date0fbirth,
-            ':profile_id'=> $profile_id
-        ]
-        );
-        return ($statement->rowCount() == 1 );
 
-}
