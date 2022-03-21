@@ -1,7 +1,8 @@
 <?php
+session_start();
 require_once ("../models/post.php");
 $text_post = $_POST['text_post'];
-$profile_id = 2;
+$profile_id = $_SESSION['profile_id'];
 if(isset($_POST["submit"]))
 {
 $file = 'IMG-'.uniqid()."-".$_FILES['uploadfile']['name'];

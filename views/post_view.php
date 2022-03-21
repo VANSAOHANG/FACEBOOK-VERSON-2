@@ -1,4 +1,4 @@
-<?php require_once("../templates/header.php")?>
+<?php require_once("../templates/header.php");session_start();?>
 <div class="button_navigation_bar ">
         <div class="search">
             <ul class=" search-box">
@@ -26,14 +26,14 @@
                 </li>
             </ul>
            
-            <div class="profiles">
-                <div class="img_profile"> 
-                    <img src="../images/man.png" alt="">
+                <div class="profiles">
+                    <div class="img_profile"> 
+                        <img src="../images/man.png" alt="">
+                    </div>
+                    <div class="user-name">
+                         <h6>Phearun Chhun</h6>
+                    </div>
                 </div>
-                <div class="user-name">
-                    <h6>Hang Vansao</h6>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -78,9 +78,12 @@
     </div>
     <!-- -------end post--------- -->
     <?php
-    require_once ('../models/post.php');     
-    $text_posts  = getPost();
+    require_once ('../models/post.php');   
+    
+    $password= $_SESSION['password_login'];
+    $email= $_SESSION['email_login'];
 
+    $text_posts  = getPost($email,$password);
     foreach($text_posts as $text_post):
     ?>
         <div class="post-view p-0 pt-3 pb-5">
@@ -88,13 +91,13 @@
                 <div class="profile">
                     <div class="img_profile"> 
                         <!-- <img src="images/man.png" alt=""> -->
-                        <img src="<?php echo '../'.$text_post['profile_image'];?>" alt="">
+                        <img src="../images/man.png" alt="">
             
                     </div>
                     <div class="user-name">
                         <!-- <h6>Phearun Chhun</h6> -->
                         <h6><?php echo $text_post['first_name'].' '.$text_post['last_name'];?></h6>
-                        <p><?php echo date_default_timezone_set('Asia/Phnom_Penh').$text_post['create_datetime']= date(" D-M-j-Y G:i:s ").'mns'?></p>
+                        <p><?= date("F jS, Y", strtotime($text_post['create_datetime'])) ." at ". date("g:iA", strtotime($text_post['create_datetime'])); ?></p>
                     </div>
                 </div>
                 <div class="three-dot mx-4">
@@ -135,7 +138,6 @@
                 </div>
                 <div   class="click_comment">
                     <button  type='submit' name='submit'  id="<?= $text_post['post_id']?>" style='display:flex;background:none; border:none '>
-                        <!-- <img src="../images/comment.png" alt=""> -->
                         <i class="far fa-comment-alt mt-2 m-2" ></i> 
                         Comment
                     </button>
