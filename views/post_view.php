@@ -58,12 +58,10 @@ require_once('../templates/navigation_bar.php');
             <div class="post-header">
                 <div class="profile">
                     <div class="img_profile"> 
-                        <!-- <img src="images/man.png" alt=""> -->
                         <img src="../images/man.png" alt="">
             
                     </div>
                     <div class="user-name">
-                        <!-- <h6>Phearun Chhun</h6> -->
                         <h6><?php echo $text_post['first_name'].' '.$text_post['last_name'];?></h6>
                         <p><?= date("F jS, Y", strtotime($text_post['create_datetime'])) ." at ". date("g:iA", strtotime($text_post['create_datetime'])); ?></p>
                     </div>

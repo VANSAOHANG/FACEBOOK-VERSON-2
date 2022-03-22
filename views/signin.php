@@ -1,4 +1,7 @@
-
+<?php
+// Start new or resume existing session.
+session_start();
+?>
 <div class="register_container">
     <div class = "form_register">
         <h4>LOGIN ACCOUNT</h4>
@@ -13,8 +16,10 @@
                 <div class="form-floating mb-3">
                     <input type="password" class="form-control" id="floatingPassword" name="password"placeholder="Password" required>
                     <label for="floatingPassword">Password</label>
+                    
                 </div>
-                <button class="btn btn-primary mt-3 w-100"  role="button">LOGIN NOW</button>
+                <small class="form-text text-danger"> <?php if(isset($_SESSION['password_error'])){ print_r($_SESSION['password_error']);} ?></small>
+                <button class="btn btn-primary mt-3 w-100" type="submit" name="submit"  role="button">LOGIN NOW</button>
                 <h6 class="text-center m-2 mt-3">Don't have an account?</h6>
                 <p class="text-center"><a href="../views/register.php" >Register account</a></p>
                 

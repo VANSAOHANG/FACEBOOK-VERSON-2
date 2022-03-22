@@ -12,23 +12,23 @@ require_once("../templates/header.php")
                 <div class="row g-2 mb-3">
                     <div class="col-md">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput"  name="firstname" placeholder="First name" required>
+                            <input type="text" class="form-control" id="floatingInput"  name="firstname" onkeyup="if (/[^|a-zA-Z0-9]+/g.test(this.value)) this.value = this.value.replace(/[^|a-zA-Z0-9]+/g,'')" placeholder="First name" required>
                             <label for="floatingInputGrid">First name</label>
                         </div>
                     </div>
                     <div class="col-md">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" name="lastname" placeholder="Last name" required>
+                            <input type="text" class="form-control" id="floatingInput" onkeyup="if (/[^|a-zA-Z0-9]+/g.test(this.value)) this.value = this.value.replace(/[^|a-zA-Z0-9]+/g,'')" name="lastname" placeholder="Last name" required>
                             <label for="floatingInputGrid">Last name</label>
                         </div>
                     </div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com" required>
+                    <input type="email" class="form-control" id="floatingInput" name="email" onkeyup="if (/[^|a-zA-Z0-9@.]+/g.test(this.value)) this.value = this.value.replace(/[^|a-zA-Z0-9@.]+/g,'')" placeholder="name@example.com" required>
                     <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" name="password"placeholder="Password" required>
+                    <input type="password" class="form-control" id="floatingPassword" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  placeholder="Password" required>
                     <label for="floatingPassword">Password</label>
                 </div>
                 <div class="form-floating mb-3">
