@@ -55,12 +55,7 @@ function getPost($email,$password)
     return$text_post ;
 }
 
-/**
- * Get a single item
- * @param integer $id : the item id
- 
- * @return associative_array: the item related to given item id
- */
+
 function getPostById($post_id)
 {
     global $db;
@@ -74,12 +69,8 @@ function getPostById($post_id)
     return $text_post;
 }
 
-/**
- * Remove item related to given item id
- * @param integer $id :  the id of the item to delete
- 
- * @return boolean: true if deletion was successful, false otherwise
- */
+
+
 function deletePost($post_id)
 {
     global $db;
@@ -93,15 +84,7 @@ function deletePost($post_id)
    
 }
 
-/**
- * Update a Item given id and attributes
- * @param integer $id :  		the id of the item to update
- * @param string  $item_name :  the item name
- * @param integer $price :  	the item price
- * 
- 
- * @return boolean: true if deletion was successful, false otherwise
- */
+
 function updatePost($post_id, $text_post,$images)
 {
     global  $db ; 
@@ -116,13 +99,7 @@ function updatePost($post_id, $text_post,$images)
         return ($statement->rowCount() == 1 );
 }
 
-/**
- * Create a new item 
- * @param string  $item_name :  	the item name
- * @param integer $price :  		the price
- 
- * @return boolean: true if create was successful, false otherwise
- */
+
 function createPost($text_post,$filename,$profile_id)
 {
     global $db ;
